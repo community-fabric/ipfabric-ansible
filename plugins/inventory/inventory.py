@@ -20,7 +20,7 @@ DOCUMENTATION = """
         required: True
         choices: ['ipfabric.ansible.inventory']
       provider:
-        description: 
+        description:
           - Information used to connect to IPFabric via API
         type: dict
         required: True
@@ -95,7 +95,7 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
           strict = self.get_option('strict')
           self._add_host_to_composed_groups(self.get_option('groups'), new_vars, to_text(hostname), strict=strict)
           self._add_host_to_keyed_groups(self.get_option("keyed_groups"), new_vars, to_text(hostname), strict=strict)
-        
+
 
     def parse(self, inventory, loader, path, cache=True):
       super(InventoryModule, self).parse(inventory, loader, path)

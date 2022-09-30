@@ -15,4 +15,3 @@ repository: https://github.com/community-fabric/ipfabric-ansible
 homepage: https://github.com/community-fabric/ipfabric-ansible
 issues: https://github.com/community-fabric/ipfabric-ansible/issues
 build_ignore: []
-
