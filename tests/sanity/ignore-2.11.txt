@@ -1,0 +1,2 @@
+plugins/inventory/inventory.py compile-2.6!skip
+plugins/inventory/inventory.py compile-2.7!skip
