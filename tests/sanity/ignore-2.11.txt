@@ -1,1 +1,0 @@
-plugins/inventory/inventory.py validate-modules:E105 #ignore missing-gplv3-license
