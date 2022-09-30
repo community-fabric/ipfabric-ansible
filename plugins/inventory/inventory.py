@@ -5,14 +5,13 @@ __metaclass__ = type
 DOCUMENTATION = """
     name: inventory
     extends_documentation_fragment:
+      - inventory_cache
       - constructed
     author:
       - Alex Gittings (@minitriga)
     short_description: IP Fabric inventory source
     description:
       - Get inventory hosts from IP Fabric
-    extends_document_fragments:
-      - constructed
     options:
       plugin:
         description: token that ensures this is a source file for the 'ipfabric' plugin.
