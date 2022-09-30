@@ -1,0 +1,1 @@
+plugins/inventory/inventory.py validate-modules:missing-gplv3-license
