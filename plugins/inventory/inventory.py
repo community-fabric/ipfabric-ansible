@@ -61,6 +61,7 @@ from ansible.errors import AnsibleError
 from ansible.module_utils._text import to_text
 from ansible.module_utils.basic import missing_required_lib
 from ansible.plugins.inventory import BaseInventoryPlugin, Constructable, Cacheable
+from ansible.inventory.group import to_safe_group_name
 import traceback
 
 IPFABRIC_IMP_ERR = None
@@ -74,6 +75,13 @@ except ImportError:
 
 class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
     NAME = "ipfabric.ansible.inventory"
+
+    # Constructable methods use the following function to construct group names. By
+    # default, characters that are not valid in python variables, are always replaced by
+    # underscores. We are overriding this with a function that respects the
+    # TRANSFORM_INVALID_GROUP_CHARS configuration option and allows users to control the
+    # behavior.
+    _sanitize_group_name = staticmethod(to_safe_group_name)
 
     def fetch_devices(self, ipf):
         self.devices_list = ipf.inventory.devices.all()
@@ -94,9 +102,6 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
                 strict = self.get_option('strict')
                 self._add_host_to_composed_groups(self.get_option('groups'), new_vars, to_text(hostname), strict=strict)
                 self._add_host_to_keyed_groups(self.get_option("keyed_groups"), new_vars, to_text(hostname), strict=strict)
-
-
-
 
     def main(self):
         ipf = self.get_ipf()

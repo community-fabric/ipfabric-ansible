@@ -71,6 +71,37 @@ jobs:
           #   ansible.netcommon
           #   ansible.utils
 
+  units:
+    runs-on: ubuntu-latest
+    name: Units (Ⓐ${{ matrix.ansible }})
+    strategy:
+      # As soon as the first unit test fails, cancel the others to free up the CI queue
+      fail-fast: true
+      matrix:
+        ansible:
+          # - stable-2.9 # Only if your collection supports Ansible 2.9
+          # - stable-2.10 # Only if your collection supports ansible-base 2.10
+          - stable-2.11
+          - stable-2.12
+          - stable-2.13
+          - stable-2.14
+          - devel
+        # - milestone
+
+    steps:
+      - name: >-
+          Perform unit testing against
+          Ansible version ${{ matrix.ansible }}
+        uses: ansible-community/ansible-test-gh-action@release/v1
+        with:
+          ansible-core-version: ${{ matrix.ansible }}
+          testing-type: units
+          # OPTIONAL If your unit tests require code
+          # from other collections, install them like this
+          test-deps: >-
+            ansible.netcommon
+            ansible.utils
+
   check:  # This job does nothing and is only used for the branch protection
           # or multi-stage CI jobs, like making sure that all tests pass before
           # a publishing job is started.
