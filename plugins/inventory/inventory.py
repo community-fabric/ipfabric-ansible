@@ -78,22 +78,31 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
     def fetch_devices(self, ipf):
         self.devices_list = ipf.inventory.devices.all()
 
+    def get_ipf(self):
+      return IPFClient(**self.get_option('provider'))
+
+    def _populate(self, records):
+      for device in records:
+        hostname = device['hostname']
+        if device["loginIp"] and (device['devType'] != 'ap'):
+            new_vars = dict()
+            self.inventory.add_host(host=to_text(hostname))
+            for devicevar, deviceval in device.items():
+                self.inventory.set_variable(to_text(hostname), devicevar.lower(), deviceval)
+                new_vars[devicevar.lower()] = deviceval
+
+                strict = self.get_option('strict')
+                self._add_host_to_composed_groups(self.get_option('groups'), new_vars, to_text(hostname), strict=strict)
+                self._add_host_to_keyed_groups(self.get_option("keyed_groups"), new_vars, to_text(hostname), strict=strict)
+
+
+
+
     def main(self):
-        ipf = IPFClient(**self.get_option('provider'))
+        ipf = self.get_ipf()
         self.fetch_devices(ipf)
 
-        for device in self.devices_list:
-            hostname = device['hostname']
-            if device["loginIp"] and (device['devType'] != 'ap'):
-                new_vars = dict()
-                self.inventory.add_host(host=to_text(hostname))
-                for devicevar, deviceval in device.items():
-                    self.inventory.set_variable(to_text(hostname), devicevar.lower(), deviceval)
-                    new_vars[devicevar.lower()] = deviceval
-
-                    strict = self.get_option('strict')
-                    self._add_host_to_composed_groups(self.get_option('groups'), new_vars, to_text(hostname), strict=strict)
-                    self._add_host_to_keyed_groups(self.get_option("keyed_groups"), new_vars, to_text(hostname), strict=strict)
+        self._populate(self.devices_list)
 
     def parse(self, inventory, loader, path, cache=True):
         super(InventoryModule, self).parse(inventory, loader, path)
