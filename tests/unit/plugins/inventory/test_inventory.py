@@ -121,7 +121,7 @@ def test_provider_variables(inventory, mocker):
     def get_option(opt):
         return dict(
             provider=dict(
-                base_url="https://google.com",
+                base_url="https://demo1.ipfabric.io/",
                 token="test_token"
             )
         ).get(opt)
@@ -137,7 +137,7 @@ def test_provider_variables(inventory, mocker):
 def test_constructed_groups(inventory, mocker, payload):
     def get_option(opt):
         return dict(
-            groups=dict(
+            groups=dict(m
                 vsrx="platform == 'vsrx'"
             )
         ).get(opt)
