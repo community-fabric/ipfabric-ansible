@@ -56,11 +56,11 @@ jobs:
           - devel
         # - milestone
         python:
-          - 3.6
-          - 3.7
-          - 3.8
-          - 3.9
-          - 3.10
+          - "3.6"
+          - "3.7"
+          - "3.8"
+          - "3.9"
+          - "3.10"
     runs-on: ubuntu-latest
     steps:
       # Run sanity tests inside a Docker container.
@@ -88,11 +88,11 @@ jobs:
           - stable-2.14
           - devel
         python:
-          - 3.6
-          - 3.7
-          - 3.8
-          - 3.9
-          - 3.10
+          - "3.6"
+          - "3.7"
+          - "3.8"
+          - "3.9"
+          - "3.10"
 
     steps:
       - name: >-
