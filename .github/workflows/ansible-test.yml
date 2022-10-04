@@ -65,11 +65,6 @@ jobs:
         with:
           ansible-core-version: ${{ matrix.ansible }}
           testing-type: sanity
-          # OPTIONAL If your sanity tests require code
-          # from other collections, install them like this
-          # test-deps: >-
-          #   ansible.netcommon
-          #   ansible.utils
 
   units:
     runs-on: ubuntu-latest
