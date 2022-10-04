@@ -1,2 +1,2 @@
-ipfabric
 idna >= '2.8'
+ipfabric
