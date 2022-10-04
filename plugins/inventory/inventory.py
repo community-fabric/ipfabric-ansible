@@ -4,9 +4,6 @@ __metaclass__ = type
 
 DOCUMENTATION = """
     name: inventory
-    extends_documentation_fragment:
-      - inventory_cache
-      - constructed
     author:
       - Alex Gittings (@minitriga)
     short_description: IP Fabric inventory source
@@ -44,6 +41,9 @@ DOCUMENTATION = """
             description:
               - IP Fabric snapshot IF to use by default for database actions. Defaults to C($last).
             default: "$last"
+    extends_documentation_fragment:
+      - inventory_cache
+      - constructed
 """
 
 EXAMPLES = """
@@ -51,6 +51,15 @@ EXAMPLES = """
 # Example command line: ansible-inventory -v --list -i inventory.yml
 
 plugin: ipfabric.ansible.inventory
+provider:
+  base_url: https://demo1.ipfabric.io/
+  token: test-token
+keyed_groups:
+  - key: sitename
+    prefix: ""
+    separator: ""
+groups:
+  ciscoios: "family == 'ios'"
 """
 
 from ansible.errors import AnsibleError
