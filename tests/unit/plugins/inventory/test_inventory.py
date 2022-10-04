@@ -108,7 +108,7 @@ def test_provider_no_env_variables(inventory, mocker):
 
     assert "IP Fabric base_url not provided or IPF_URL not set" in str(exc.value)
 
-    os.environ['IPF_URL'] = "https://demo1.ipfabric.io"
+    os.environ['IPF_URL'] = "https://demo1.ipfabric.io/"
 
     with pytest.raises(RuntimeError) as exc:
         IPFClient()
@@ -119,7 +119,7 @@ def test_provider_variables(inventory, mocker):
     def get_option(opt):
         return dict(
             provider = dict(
-                base_url = "https://demo1.ipfabric.io/",
+                base_url = "https://google.com",
                 token = "test_token"
             )
         ).get(opt)
@@ -129,7 +129,7 @@ def test_provider_variables(inventory, mocker):
     with pytest.raises(httpx.HTTPStatusError) as exc:
         inventory.get_ipf()
 
-    assert '401 Unauthorized' in str(exc.value)
+    assert '404 Not Found' in str(exc.value)
 
 def test_constructed_groups(inventory, mocker, payload):
     def get_option(opt):
