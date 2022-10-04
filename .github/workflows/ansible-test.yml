@@ -102,6 +102,7 @@ jobs:
         with:
           ansible-core-version: ${{ matrix.ansible }}
           testing-type: units
+          origin-python-version: ${{ matrix.python }}
 
   check:  # This job does nothing and is only used for the branch protection
           # or multi-stage CI jobs, like making sure that all tests pass before
