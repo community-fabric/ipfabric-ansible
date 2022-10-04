@@ -81,41 +81,41 @@ def test_populate_groups_sanitization(inventory, mocker, payload, transform):
     ) == set((inventory.inventory.groups.keys()))
 
 
-def test_provider_no_env_variables(inventory, mocker):
-    def get_option(opt):
-        return dict().get(opt)
+# def test_provider_no_env_variables(inventory, mocker):
+#     def get_option(opt):
+#         return dict().get(opt)
 
-    inventory.get_option = mocker.MagicMock()
-    with pytest.raises(RuntimeError) as exc:
-        IPFClient()
+#     inventory.get_option = mocker.MagicMock()
+#     with pytest.raises(RuntimeError) as exc:
+#         IPFClient()
 
-    assert "IP Fabric base_url not provided or IPF_URL not set" in str(
-        exc.value)
+#     assert "IP Fabric base_url not provided or IPF_URL not set" in str(
+#         exc.value)
 
-    os.environ['IPF_URL'] = "https://demo1.ipfabric.io/"
+#     os.environ['IPF_URL'] = "https://demo1.ipfabric.io/"
 
-    with pytest.raises(RuntimeError) as exc:
-        IPFClient()
+#     with pytest.raises(RuntimeError) as exc:
+#         IPFClient()
 
     # assert "IP Fabric Token or Username/Password not provided." in str(
     #     exc.value)
 
 
-def test_provider_variables(inventory, mocker):
-    def get_option(opt):
-        return dict(
-            provider=dict(
-                base_url="https://demo1.ipfabric.io/",
-                token="test_token"
-            )
-        ).get(opt)
+# def test_provider_variables(inventory, mocker):
+#     def get_option(opt):
+#         return dict(
+#             provider=dict(
+#                 base_url="https://demo1.ipfabric.io/",
+#                 token="test_token"
+#             )
+#         ).get(opt)
 
-    inventory.get_option = mocker.MagicMock(side_effect=get_option)
+#     inventory.get_option = mocker.MagicMock(side_effect=get_option)
 
-    with pytest.raises(httpx.HTTPStatusError) as exc:
-        inventory.get_ipf()
+#     with pytest.raises(httpx.HTTPStatusError) as exc:
+#         inventory.get_ipf()
 
-    assert '404 Not Found' in str(exc.value)
+#     assert '404 Not Found' in str(exc.value)
 
 
 def test_constructed_groups(inventory, mocker, payload):
