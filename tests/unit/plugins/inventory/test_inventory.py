@@ -12,24 +12,6 @@ import json
 from ipfabric import IPFClient
 import os
 
-# @pytest.fixture()
-# def inventory():
-#     inventory = InventoryModule()
-#     inventory._options = {
-#         "provider": {
-#             "base_url": "https://demo1.ipfabric.io/",
-#             "token": "test_token",
-#             "verify": True,
-#             "snapshot_id": "$last"
-#         },
-#         "strict": True,
-#         "compose": {},
-#         "groups": {},
-#         "keyed_groups": [],
-#     }
-#     inventory.inventory = MagicMock()
-#     return inventory
-
 
 @pytest.fixture()
 def inventory():
@@ -107,14 +89,16 @@ def test_provider_no_env_variables(inventory, mocker):
     with pytest.raises(RuntimeError) as exc:
         IPFClient()
 
-    assert "IP Fabric base_url not provided or IPF_URL not set" in str(exc.value)
+    assert "IP Fabric base_url not provided or IPF_URL not set" in str(
+        exc.value)
 
     os.environ['IPF_URL'] = "https://demo1.ipfabric.io/"
 
     with pytest.raises(RuntimeError) as exc:
         IPFClient()
 
-    assert "IP Fabric Token or Username/Password not provided." in str(exc.value)
+    assert "IP Fabric Token or Username/Password not provided." in str(
+        exc.value)
 
 
 def test_provider_variables(inventory, mocker):
@@ -137,7 +121,7 @@ def test_provider_variables(inventory, mocker):
 def test_constructed_groups(inventory, mocker, payload):
     def get_option(opt):
         return dict(
-            groups=dict(m
+            groups=dict(
                 vsrx="platform == 'vsrx'"
             )
         ).get(opt)
