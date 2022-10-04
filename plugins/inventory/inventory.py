@@ -27,15 +27,11 @@ DOCUMENTATION = """
             description: Url of the IP Fabric API
             required: True
             type: str
-            env:
-              - name: IPF_URL
           token:
             description:
               - IP Fabric API token to be able to gather device information.
             required: True
             type: str
-            env:
-              - name: IPF_TOKEN
           api_version:
             description: The version of the IP Fabric REST API.
             type: str

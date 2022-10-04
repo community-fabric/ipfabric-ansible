@@ -9,6 +9,8 @@ from ansible.parsing.dataloader import DataLoader
 from ansible.inventory.data import InventoryData
 from ansible.template import Templar
 import json
+from ipfabric import IPFClient
+import os
 
 # @pytest.fixture()
 # def inventory():
@@ -43,7 +45,6 @@ def test_verify_file_bad_config(inventory):
 
 @pytest.fixture()
 def payload():
-    import os
     return json.loads(open("tests/unit/plugins/inventory/inventory.json").read())
 
 
@@ -95,4 +96,54 @@ def test_populate_groups_sanitization(inventory, mocker, payload, transform):
 
     assert set(
         ("all", "ungrouped", "_SITE", "SITE_1", "SITE_1")
+    ) == set((inventory.inventory.groups.keys()))
+
+def test_provider_no_env_variables(inventory, mocker):
+    def get_option(opt):
+        return dict().get(opt)
+
+    inventory.get_option = mocker.MagicMock()
+    with pytest.raises(RuntimeError) as exc:
+        IPFClient()
+
+    assert "IP Fabric base_url not provided or IPF_URL not set" in str(exc.value)
+
+    os.environ['IPF_URL'] = "https://demo1.ipfabric.io"
+
+    with pytest.raises(RuntimeError) as exc:
+        IPFClient()
+
+    assert "IP Fabric Token or Username/Password not provided." in str(exc.value)
+
+def test_provider_variables(inventory, mocker):
+    def get_option(opt):
+        return dict(
+            provider = dict(
+                base_url = "https://demo1.ipfabric.io/",
+                token = "test_token"
+            )
+        ).get(opt)
+
+    inventory.get_option = mocker.MagicMock(side_effect=get_option)
+
+    with pytest.raises(httpx.HTTPStatusError) as exc:
+        inventory.get_ipf()
+
+    assert '401 Unauthorized' in str(exc.value)
+
+def test_constructed_groups(inventory, mocker, payload):
+    def get_option(opt):
+        return dict(
+            groups = dict(
+                vsrx = "platform == 'vsrx'"
+            )
+        ).get(opt)
+
+
+    inventory.get_option = mocker.MagicMock(side_effect=get_option)
+
+    inventory._populate(payload)
+
+    assert set(
+        ("all", "ungrouped", "vsrx")
     ) == set((inventory.inventory.groups.keys()))
