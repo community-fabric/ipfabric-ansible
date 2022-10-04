@@ -55,12 +55,7 @@ jobs:
           - stable-2.14
           - devel
         # - milestone
-        python:
-          - "3.6"
-          - "3.7"
-          - "3.8"
-          - "3.9"
-          - "3.10"
+
     runs-on: ubuntu-latest
     steps:
       # Run sanity tests inside a Docker container.
@@ -87,12 +82,6 @@ jobs:
           - stable-2.13
           - stable-2.14
           - devel
-        python:
-          - "3.6"
-          - "3.7"
-          - "3.8"
-          - "3.9"
-          - "3.10"
 
     steps:
       - name: >-
@@ -102,7 +91,7 @@ jobs:
         with:
           ansible-core-version: ${{ matrix.ansible }}
           testing-type: units
-          origin-python-version: ${{ matrix.python }}
+          origin-python-version: "3.10"
 
   check:  # This job does nothing and is only used for the branch protection
           # or multi-stage CI jobs, like making sure that all tests pass before
