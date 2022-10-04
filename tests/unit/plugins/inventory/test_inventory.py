@@ -98,6 +98,7 @@ def test_populate_groups_sanitization(inventory, mocker, payload, transform):
         ("all", "ungrouped", "_SITE", "SITE_1", "SITE_1")
     ) == set((inventory.inventory.groups.keys()))
 
+
 def test_provider_no_env_variables(inventory, mocker):
     def get_option(opt):
         return dict().get(opt)
@@ -115,12 +116,13 @@ def test_provider_no_env_variables(inventory, mocker):
 
     assert "IP Fabric Token or Username/Password not provided." in str(exc.value)
 
+
 def test_provider_variables(inventory, mocker):
     def get_option(opt):
         return dict(
-            provider = dict(
-                base_url = "https://google.com",
-                token = "test_token"
+            provider=dict(
+                base_url="https://google.com",
+                token="test_token"
             )
         ).get(opt)
 
@@ -131,14 +133,14 @@ def test_provider_variables(inventory, mocker):
 
     assert '404 Not Found' in str(exc.value)
 
+
 def test_constructed_groups(inventory, mocker, payload):
     def get_option(opt):
         return dict(
-            groups = dict(
-                vsrx = "platform == 'vsrx'"
+            groups=dict(
+                vsrx="platform == 'vsrx'"
             )
         ).get(opt)
-
 
     inventory.get_option = mocker.MagicMock(side_effect=get_option)
 
