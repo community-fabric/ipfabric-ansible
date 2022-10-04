@@ -95,13 +95,8 @@ jobs:
         with:
           ansible-core-version: ${{ matrix.ansible }}
           origin-python-version: 3.9
-          target-python-version: 3.9
+          target-python-version: 3.10
           testing-type: units
-          # OPTIONAL If your unit tests require code
-          # from other collections, install them like this
-          test-deps: >-
-            ansible.netcommon
-            ansible.utils
 
   check:  # This job does nothing and is only used for the branch protection
           # or multi-stage CI jobs, like making sure that all tests pass before
