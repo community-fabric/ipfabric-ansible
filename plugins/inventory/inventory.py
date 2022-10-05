@@ -4,9 +4,6 @@ __metaclass__ = type
 
 DOCUMENTATION = """
     name: inventory
-    extends_documentation_fragment:
-      - inventory_cache
-      - constructed
     author:
       - Alex Gittings (@minitriga)
     short_description: IP Fabric inventory source
@@ -27,15 +24,11 @@ DOCUMENTATION = """
             description: Url of the IP Fabric API
             required: True
             type: str
-            env:
-              - name: IPF_URL
           token:
             description:
               - IP Fabric API token to be able to gather device information.
             required: True
             type: str
-            env:
-              - name: IPF_TOKEN
           api_version:
             description: The version of the IP Fabric REST API.
             type: str
@@ -48,6 +41,9 @@ DOCUMENTATION = """
             description:
               - IP Fabric snapshot IF to use by default for database actions. Defaults to C($last).
             default: "$last"
+    extends_documentation_fragment:
+      - inventory_cache
+      - constructed
 """
 
 EXAMPLES = """
@@ -55,12 +51,22 @@ EXAMPLES = """
 # Example command line: ansible-inventory -v --list -i inventory.yml
 
 plugin: ipfabric.ansible.inventory
+provider:
+  base_url: https://demo1.ipfabric.io/
+  token: test-token
+keyed_groups:
+  - key: sitename
+    prefix: ""
+    separator: ""
+groups:
+  ciscoios: "family == 'ios'"
 """
 
 from ansible.errors import AnsibleError
 from ansible.module_utils._text import to_text
 from ansible.module_utils.basic import missing_required_lib
 from ansible.plugins.inventory import BaseInventoryPlugin, Constructable, Cacheable
+from ansible.inventory.group import to_safe_group_name
 import traceback
 
 IPFABRIC_IMP_ERR = None
@@ -75,14 +81,21 @@ except ImportError:
 class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
     NAME = "ipfabric.ansible.inventory"
 
+    # Constructable methods use the following function to construct group names. By
+    # default, characters that are not valid in python variables, are always replaced by
+    # underscores. We are overriding this with a function that respects the
+    # TRANSFORM_INVALID_GROUP_CHARS configuration option and allows users to control the
+    # behavior.
+    _sanitize_group_name = staticmethod(to_safe_group_name)
+
     def fetch_devices(self, ipf):
         self.devices_list = ipf.inventory.devices.all()
 
-    def main(self):
-        ipf = IPFClient(**self.get_option('provider'))
-        self.fetch_devices(ipf)
+    def get_ipf(self):
+        return IPFClient(**self.get_option('provider'))
 
-        for device in self.devices_list:
+    def _populate(self, records):
+        for device in records:
             hostname = device['hostname']
             if device["loginIp"] and (device['devType'] != 'ap'):
                 new_vars = dict()
@@ -94,6 +107,12 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
                     strict = self.get_option('strict')
                     self._add_host_to_composed_groups(self.get_option('groups'), new_vars, to_text(hostname), strict=strict)
                     self._add_host_to_keyed_groups(self.get_option("keyed_groups"), new_vars, to_text(hostname), strict=strict)
+
+    def main(self):
+        ipf = self.get_ipf()
+        self.fetch_devices(ipf)
+
+        self._populate(self.devices_list)
 
     def parse(self, inventory, loader, path, cache=True):
         super(InventoryModule, self).parse(inventory, loader, path)
