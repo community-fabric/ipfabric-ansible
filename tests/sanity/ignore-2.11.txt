@@ -4,5 +4,5 @@ plugins/inventory/inventory.py import-2.6!skip
 plugins/inventory/inventory.py import-2.7!skip
 plugins/inventory/inventory.py compile-3.5!skip
 plugins/inventory/inventory.py import-3.5!skip
-plugins/modules/snapshot.py validate-modules:E105
-plugins/modules/snapshot_info.py validate-modules:E105
+plugins/modules/snapshot.py validate-modules:missing-gplv3-license
+plugins/modules/snapshot_info.py validate-modules:missing-gplv3-license
