@@ -3,6 +3,8 @@ from ansible.module_utils.basic import env_fallback
 import traceback
 from ansible.module_utils.basic import missing_required_lib
 
+__metaclass__ = type
+
 
 class AnsibleIPFModule(object):
     """An ansible module class for IP Fabric modules
