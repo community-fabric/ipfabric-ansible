@@ -1,7 +1,3 @@
-# Copyright (c) Ansible Project
-# GNU General Public License v3.0+ (see LICENSES/GPL-3.0-or-later.txt or https://www.gnu.org/licenses/gpl-3.0.txt)
-# SPDX-License-Identifier: GPL-3.0-or-later
-
 # This file only contains a selection of the most common options. For a full list see the
 # documentation:
 # http://www.sphinx-doc.org/en/master/config
@@ -21,7 +17,7 @@ highlight_language = 'YAML+Jinja'
 html_theme = 'sphinx_ansible_theme'
 html_show_sphinx = False
 
-display_version = False
+display_version = True
 
 html_use_smartypants = True
 html_use_modindex = False
