@@ -5,8 +5,8 @@ Installation
 Ansible Galaxy
 _______________
 
-Run the following command to install the networktocode.nautobot collection:
-``ansible-galaxy collection install networktocode.nautobot``
+Run the following command to install the ipfabric.ansible collection:
+``ansible-galaxy collection install git@github.com:community-fabric/ipfabric-ansible.git``
 
 .. _docs: https://docs.ansible.com/ansible/latest/user_guide/collections_using.html#installing-collections
 
