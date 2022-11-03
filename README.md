@@ -1,5 +1,7 @@
 # IPFabric Ansible Collection
-This IPFabric Ansible collection includes of a variety of Ansible content to help automate the management of an IPFabric instance. This collection is maintained by the IPFabric Solution Architecture team.
+This IPFabric Ansible collection includes of a variety of Ansible content to help automate the management of an IP Fabric instance. This collection is maintained by the IP Fabric Solution Architecture team.
+
+The official documentation can be cound [here](https://ipfabric-ansible.readthedocs.io/en/latest/).
 
 ## Ansible version compatibility
 Tested with Ansible Core 2.12+ repleases and the current development version of Ansible. Ansible Core versions before 2.11.0 are not supported. 
