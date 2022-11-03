@@ -1,3 +1,5 @@
+[![Documentation Status](https://readthedocs.org/projects/ipfabric-ansible/badge/?version=latest)](https://ipfabric-ansible.readthedocs.io/en/latest/?badge=latest)
+
 # IPFabric Ansible Collection
 This IPFabric Ansible collection includes of a variety of Ansible content to help automate the management of an IP Fabric instance. This collection is maintained by the IP Fabric Solution Architecture team.
 

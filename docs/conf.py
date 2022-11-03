@@ -6,11 +6,11 @@
 # documentation:
 # http://www.sphinx-doc.org/en/master/config
 
-project = 'Ansible collections'
-copyright = 'Ansible contributors'
+project = 'IP Fabric Ansible Modules'
+copyright = '2022, IP Fabric'
 
-title = 'Ansible Collections Documentation'
-html_short_title = 'Ansible Collections Documentation'
+title = 'IP Fabic Ansible Collections Documentation'
+html_short_title = 'IP Fabric Ansible Collections Documentation'
 
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.intersphinx', 'sphinx_antsibull_ext']
 

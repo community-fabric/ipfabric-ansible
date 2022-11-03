@@ -4,7 +4,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 set -e
-cd /Users/agitting/projects/github/ansible-test/ansible_collections/ipfabric/ansible/docs
 
 # Create collection documentation into temporary directory
 rm -rf temp-rst
@@ -17,8 +16,8 @@ antsibull-docs \
     ipfabric.ansible
 
 # Copy collection documentation into source directory
-rsync -cprv --delete-after temp-rst/collections/ rst/collections/
+rsync -cprv --delete-after temp-rst/collections/ collections/
 
 # Build Sphinx site
-sphinx-build -M html rst build -c . -W --keep-going
+sphinx-build -M html . build -c . -W --keep-going
 
