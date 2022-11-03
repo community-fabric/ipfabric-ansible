@@ -10,3 +10,4 @@ ipfabric.ansible
 ----------------
 
 * :ref:`ipfabric.ansible.inventory <ansible_collections.ipfabric.ansible.inventory_inventory>` -- IP Fabric inventory source
+
