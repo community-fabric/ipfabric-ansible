@@ -23,6 +23,11 @@ html_use_smartypants = True
 html_use_modindex = False
 html_use_index = False
 html_copy_source = False
+html_content = {
+    'latest_version': 'latest',
+    # list specifically out of order to make latest work
+    'available_versions': ('latest', ),
+}
 
 # See https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping for the syntax
 intersphinx_mapping = {
