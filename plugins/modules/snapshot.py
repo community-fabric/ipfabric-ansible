@@ -36,13 +36,13 @@ options:
 
 EXAMPLES = '''
 - name: Start Snapshot
-  ansible.ipfabric.snapshot:
+  ipfabric.ansible.snapshot:
     provider:
       base_url: "https://demo1.ipfabric.io/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
 
 - name: Delete Snapshot
-  ansible.ipfabric.snapshot:
+  ipfabric.ansible.snapshot:
     provider:
       base_url: "https://10.194.50.6/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -50,7 +50,7 @@ EXAMPLES = '''
     state: absent
 
 - name: Unload Snapshot
-  ansible.ipfabric.snapshot:
+  ipfabric.ansible.snapshot:
     provider:
       base_url: "https://10.194.50.6/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -58,7 +58,7 @@ EXAMPLES = '''
     state: unload
 
 - name: Clone Snapshot
-  ansible.ipfabric.snapshot:
+  ipfabric.ansible.snapshot:
     provider:
       base_url: "https://10.194.50.6/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -66,7 +66,7 @@ EXAMPLES = '''
     state: clone
 
 - name: Clone Snapshot
-  ansible.ipfabric.snapshot:
+  ipfabric.ansible.snapshot:
     provider:
       base_url: "https://10.194.50.6/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -117,16 +117,20 @@ class IPFSnapshot(object):
                 else:
                     self.module.exit_json(changed=False, msg="Something wrong", data=resp.json())
         elif state in ['load', 'unload']:
+            # raise Exception(state)
             mapping = {
                 "load": "loaded",
                 "unload": "unloaded"
             }
             resp = self.rest.ipf.get(f"snapshots/{snapshot_id}")
+            # raise Exception(state)
             if resp.json()['state'] == mapping[state]:
                 self.module.exit_json(changed=False, msg=f"Snapshot {snapshot_id} already {mapping[state]}", data=resp.json())
-
+            elif resp.json()['locked']:
+                self.module.exit_json(changed=False, msg=f"Snapshot {snapshot_id} is locked", data=resp.json())
+            
             resp = self.rest.ipf.post(f'snapshots/{snapshot_id}/{state}')
-
+            
             if resp.status_code == 204:
                 self.module.exit_json(
                     changed=True, msg=f"Successfully {mapping[state]} snapshot {snapshot_id}", data={"snapshot_id": snapshot_id})
