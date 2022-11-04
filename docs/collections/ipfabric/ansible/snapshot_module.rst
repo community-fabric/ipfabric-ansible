@@ -474,13 +474,13 @@ Examples
 
     
     - name: Start Snapshot
-      ansible.ipfabric.snapshot:
+      ipfabric.ansible.snapshot:
         provider:
           base_url: "https://demo1.ipfabric.io/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
 
     - name: Delete Snapshot
-      ansible.ipfabric.snapshot:
+      ipfabric.ansible.snapshot:
         provider:
           base_url: "https://10.194.50.6/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -488,7 +488,7 @@ Examples
         state: absent
 
     - name: Unload Snapshot
-      ansible.ipfabric.snapshot:
+      ipfabric.ansible.snapshot:
         provider:
           base_url: "https://10.194.50.6/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -496,7 +496,7 @@ Examples
         state: unload
 
     - name: Clone Snapshot
-      ansible.ipfabric.snapshot:
+      ipfabric.ansible.snapshot:
         provider:
           base_url: "https://10.194.50.6/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -504,7 +504,7 @@ Examples
         state: clone
 
     - name: Clone Snapshot
-      ansible.ipfabric.snapshot:
+      ipfabric.ansible.snapshot:
         provider:
           base_url: "https://10.194.50.6/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
