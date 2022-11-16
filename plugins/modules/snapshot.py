@@ -128,9 +128,9 @@ class IPFSnapshot(object):
                 self.module.exit_json(changed=False, msg=f"Snapshot {snapshot_id} already {mapping[state]}", data=resp.json())
             elif resp.json()['locked']:
                 self.module.exit_json(changed=False, msg=f"Snapshot {snapshot_id} is locked", data=resp.json())
-            
+
             resp = self.rest.ipf.post(f'snapshots/{snapshot_id}/{state}')
-            
+
             if resp.status_code == 204:
                 self.module.exit_json(
                     changed=True, msg=f"Successfully {mapping[state]} snapshot {snapshot_id}", data={"snapshot_id": snapshot_id})
