@@ -19,10 +19,12 @@ options:
   filter:
     description: Filter to apply to the technology table
     type: dict
+    default: {}
   columns:
     description: Add columns you would like to return
     type: list
     elements: str
+    default: []
   technology:
     description: IP Fabric technology
     choices:
