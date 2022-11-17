@@ -26,7 +26,7 @@
 
 .. Anchors
 
-.. _ansible_collections.ipfabric.ansible.snapshot_info_module:
+.. _ansible_collections.ipfabric.ansible.inventory_info_module:
 
 .. Anchors: short name for ansible.builtin
 
@@ -36,8 +36,8 @@
 
 .. Title
 
-ipfabric.ansible.snapshot_info module -- Fetch Snapshot information within IP Fabric.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ipfabric.ansible.inventory_info module -- Fetch inventory tables from IP Fabric.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. Collection note
 
@@ -46,7 +46,7 @@ ipfabric.ansible.snapshot_info module -- Fetch Snapshot information within IP Fa
 
     To install it, use: :code:`ansible-galaxy collection install ipfabric.ansible`.
 
-    To use it in a playbook, specify: :code:`ipfabric.ansible.snapshot_info`.
+    To use it in a playbook, specify: :code:`ipfabric.ansible.inventory_info`.
 
 .. version_added
 
@@ -63,7 +63,7 @@ Synopsis
 
 .. Description
 
-- Fetch Snapshot information within IP Fabric.
+- Fetch inventory tables from IP Fabric.
 
 
 .. Aliases
@@ -95,9 +95,85 @@ Parameters
   * - .. raw:: html
 
         <div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-columns"></div>
+
+      .. _ansible_collections.ipfabric.ansible.inventory_info_module__parameter-columns:
+
+      .. rst-class:: ansible-option-title
+
+      **columns**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-columns" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-cell">
+
+      Add columns you would like to return
+
+
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-default-bold:`Default:` :ansible-option-default:`[]`
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-filter"></div>
+
+      .. _ansible_collections.ipfabric.ansible.inventory_info_module__parameter-filter:
+
+      .. rst-class:: ansible-option-title
+
+      **filter**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-filter" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`dictionary`
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-cell">
+
+      Filter to apply to the inventory tables
+
+
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-default-bold:`Default:` :ansible-option-default:`{}`
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider"></div>
 
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__parameter-provider:
+      .. _ansible_collections.ipfabric.ansible.inventory_info_module__parameter-provider:
 
       .. rst-class:: ansible-option-title
 
@@ -131,7 +207,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/api_version"></div>
 
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__parameter-provider/api_version:
+      .. _ansible_collections.ipfabric.ansible.inventory_info_module__parameter-provider/api_version:
 
       .. rst-class:: ansible-option-title
 
@@ -165,7 +241,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/base_url"></div>
 
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__parameter-provider/base_url:
+      .. _ansible_collections.ipfabric.ansible.inventory_info_module__parameter-provider/base_url:
 
       .. rst-class:: ansible-option-title
 
@@ -199,7 +275,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/token"></div>
 
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__parameter-provider/token:
+      .. _ansible_collections.ipfabric.ansible.inventory_info_module__parameter-provider/token:
 
       .. rst-class:: ansible-option-title
 
@@ -233,7 +309,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/verify"></div>
 
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__parameter-provider/verify:
+      .. _ansible_collections.ipfabric.ansible.inventory_info_module__parameter-provider/verify:
 
       .. rst-class:: ansible-option-title
 
@@ -276,7 +352,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-snapshot_id"></div>
 
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__parameter-snapshot_id:
+      .. _ansible_collections.ipfabric.ansible.inventory_info_module__parameter-snapshot_id:
 
       .. rst-class:: ansible-option-title
 
@@ -305,6 +381,60 @@ Parameters
 
         </div>
 
+  * - .. raw:: html
+
+        <div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-table"></div>
+
+      .. _ansible_collections.ipfabric.ansible.inventory_info_module__parameter-table:
+
+      .. rst-class:: ansible-option-title
+
+      **table**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-table" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`string` / :ansible-option-required:`required`
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-cell">
+
+      Table to use from inventory
+
+
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-choices:`Choices:`
+
+      - :ansible-option-choices-entry:`"devices"`
+      - :ansible-option-choices-entry:`"families"`
+      - :ansible-option-choices-entry:`"fans"`
+      - :ansible-option-choices-entry:`"hosts"`
+      - :ansible-option-choices-entry:`"interfaces"`
+      - :ansible-option-choices-entry:`"models"`
+      - :ansible-option-choices-entry:`"modules"`
+      - :ansible-option-choices-entry:`"phones"`
+      - :ansible-option-choices-entry:`"platforms"`
+      - :ansible-option-choices-entry:`"pn"`
+      - :ansible-option-choices-entry:`"powerSupplies"`
+      - :ansible-option-choices-entry:`"powerSuppliesFans"`
+      - :ansible-option-choices-entry:`"sites"`
+      - :ansible-option-choices-entry:`"vendors"`
+
+
+      .. raw:: html
+
+        </div>
+
 
 .. Attributes
 
@@ -323,19 +453,33 @@ Examples
 .. code-block:: yaml+jinja
 
     
-    - name: Get All Snapshots
-      ipfabric.ansible.snapshot_info:
+    - name: Get devices table from latest snapshot
+      ipfabric.ansible.inventory_info:
         provider:
-          base_url: "https://demo1.ipfabric.io/"
+          base_url: "https://demo1.eu.ipfabric.io/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
+        table: devices
 
-    - name: Get One Snapshot
-      ipfabric.ansible.snapshot_info:
+    - name: Get devices for a site on specific snapshot and filter by site
+      ipfabric.ansible.inventory_info:
         provider:
-          base_url: "https://demo1.ipfabric.io/"
+          base_url: "https://demo1.eu.ipfabric.io/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
         snapshot_id: bbc15e2e-4e75-4c54-9526-b6d8d3f9ff8b
-      register: snapshots
+        table: devices
+        filter: {"and": [{"siteName": ["eq","MERAKI_SITE"]}]}
+
+    - name: Get devices for a site and only return specific columns
+      ipfabric.ansible.inventory_info:
+        provider:
+          base_url: "https://demo1.eu.ipfabric.io/"
+          token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
+        table: devices
+        filter: {"and": [{"siteName": ["eq","MERAKI_SITE"]}]}
+        columns:
+          - hostname
+          - family
+          - loginIp
 
 
 
@@ -364,7 +508,7 @@ Common return values are documented :ref:`here <common_return_values>`, the foll
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="return-data"></div>
 
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__return-data:
+      .. _ansible_collections.ipfabric.ansible.inventory_info_module__return-data:
 
       .. rst-class:: ansible-option-title
 
@@ -386,7 +530,7 @@ Common return values are documented :ref:`here <common_return_values>`, the foll
 
         <div class="ansible-option-cell">
 
-      IP Fabric snapshot information
+      IP Fabric platform table
 
 
       .. rst-class:: ansible-option-line
@@ -396,7 +540,7 @@ Common return values are documented :ref:`here <common_return_values>`, the foll
       .. rst-class:: ansible-option-line
       .. rst-class:: ansible-option-sample
 
-      :ansible-option-sample-bold:`Sample:` :ansible-rv-sample-value:`[{"count": 61, "end": "2022-01-26T23:07:39.641000+00:00", "licensed\_count": 61, "locked": false, "name": "test\_daren", "note": "Site 35 - Baseline, before adding the Azure infrastructure", "sites": [{"site\_id": "2019877", "uid": "35COLO"}, {"site\_id": "2019883", "uid": "35HEADOFFICE"}, {"site\_id": "2019888", "uid": "35PRODUCTION"}, {"site\_id": "2019895", "uid": "35SALES"}, {"site\_id": "2019900", "uid": "MPLS"}], "snapshot\_id": "d323b197-35bb-41e5-9a42-d4de9b38ccaa", "start": "2022-01-26T22:59:15.816000+00:00", "state": "loaded", "status": "done", "version": "5.0.2+5"}]`
+      :ansible-option-sample-bold:`Sample:` :ansible-rv-sample-value:`[{"devicesCount": "5,", "family": "eos,", "id": "arista-eos-veos,", "modelsCount": "1,", "platform": "veos,", "vendor": "arista"}, {"devicesCount": "6,", "family": "ec2,", "id": "aws-ec2-nat,", "modelsCount": "1,", "platform": "nat,", "vendor": "aws"}]`
 
 
       .. raw:: html

@@ -8,7 +8,7 @@ class ModuleDocFragment(object):
 options:
   provider:
     description:
-      - Information used to connect to IPFabric via API
+      - Information used to connect to IP Fabric via API
     type: dict
     required: True
     suboptions:

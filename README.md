@@ -1,7 +1,7 @@
 [![Documentation Status](https://readthedocs.org/projects/ipfabric-ansible/badge/?version=latest)](https://ipfabric-ansible.readthedocs.io/en/latest/?badge=latest)
 
-# IPFabric Ansible Collection
-This IPFabric Ansible collection includes of a variety of Ansible content to help automate the management of an IP Fabric instance. This collection is maintained by the IP Fabric Solution Architecture team.
+# IP Fabric Ansible Collection
+This IP Fabric Ansible collection includes of a variety of Ansible content to help automate the management of an IP Fabric instance. This collection is maintained by the IP Fabric Solution Architecture team.
 
 The official documentation can be cound [here](https://ipfabric-ansible.readthedocs.io/en/latest/).
 
@@ -9,7 +9,7 @@ The official documentation can be cound [here](https://ipfabric-ansible.readthed
 Tested with Ansible Core 2.12+ repleases and the current development version of Ansible. Ansible Core versions before 2.11.0 are not supported. 
 
 ## Python version compatibility
-This collection depends on the IPFabric SDK for python (ipfabric).
+This collection depends on the IP Fabric SDK for python (ipfabric).
 
 ## Included Content
 See below for the current collection content:

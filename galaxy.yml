@@ -4,14 +4,14 @@ name: ansible
 version: 0.0.1
 readme: README.md
 authors:
-- IPFabric <solution.architecture@ipfabric.io>
-description: Ansible Collection for managing IPFabric
+- IP Fabric <solution.architecture@ipfabric.io>
+description: Ansible Collection for managing IP Fabric
 license_file: 'LICENSE'
 tags:
   - ipfabric
   - discovery
 repository: https://github.com/community-fabric/ipfabric-ansible
-#documentation: http://docs.example.com
+documentation: https://ipfabric-ansible.readthedocs.io/en/latest/
 homepage: https://github.com/community-fabric/ipfabric-ansible
 issues: https://github.com/community-fabric/ipfabric-ansible/issues
 build_ignore: []

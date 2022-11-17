@@ -927,7 +927,7 @@ Parameters
 
         <div class="ansible-option-cell">
 
-      Information used to connect to IPFabric via API
+      Information used to connect to IP Fabric via API
 
 
       .. raw:: html
