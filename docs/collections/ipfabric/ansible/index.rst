@@ -15,11 +15,11 @@ Collection version 0.0.1
 Description
 -----------
 
-Ansible Collection for managing IPFabric
+Ansible Collection for managing IP Fabric
 
 **Author:**
 
-* IPFabric <solution.architecture@ipfabric.io>
+* IP Fabric <solution.architecture@ipfabric.io>
 
 
 .. raw:: html
@@ -44,6 +44,7 @@ These are the plugins in the ipfabric.ansible collection:
 Modules
 ~~~~~~~
 
+* :ref:`inventory_info module <ansible_collections.ipfabric.ansible.inventory_info_module>` -- Fetch inventory tables from IP Fabric.
 * :ref:`snapshot module <ansible_collections.ipfabric.ansible.snapshot_module>` -- Create, Update, Load, Unload or Delete Snapshots within IP Fabric
 * :ref:`snapshot_info module <ansible_collections.ipfabric.ansible.snapshot_info_module>` -- Fetch Snapshot information within IP Fabric.
 * :ref:`technology_info module <ansible_collections.ipfabric.ansible.technology_info_module>` -- Fetch technology tables from IP Fabric.
@@ -65,6 +66,7 @@ Inventory Plugins
     :hidden:
 
     inventory_inventory
+    inventory_info_module
     snapshot_module
     snapshot_info_module
     technology_info_module
