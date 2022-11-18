@@ -2,9 +2,9 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 DOCUMENTATION = """
-    name: lookup
+    name: inventory
     short_description: Queries and returns IP Fabric information.
-    description: 
+    description:
         - Queries IP Fabric via its API and returns information.
     author:
         - Alex Gittings (@minitriga)
@@ -42,16 +42,17 @@ DOCUMENTATION = """
             required: False
             type: dict
         columns:
-            description: 
+            description:
                 - Add columns you would like to return.
             required: False
             type: list
+            elements: str
         report:
             description:
                 - Return report information when filtering by report.
             required: False
             type: str
-    requirements: 
+    requirements:
         - ipfabric
 """
 
@@ -64,7 +65,7 @@ EXAMPLES = """
   ansible.builtin.debug:
     msg: "{{ lookup('ipfabric.ansible.inventory', 'devices', base_url='https://<url_here>/', token='<token_here>') }}"
 
-- name: Get sites and sort by name. 
+- name: Get sites and sort by name.
   ansible.builtin.debug:
     msg: "{{ lookup('ipfabric.ansible.inventory', 'sites', sort={'order': 'asc', 'column': 'siteName'}) }}"
 
