@@ -425,8 +425,6 @@ Parameters
       - :ansible-option-choices-entry:`"phones"`
       - :ansible-option-choices-entry:`"platforms"`
       - :ansible-option-choices-entry:`"pn"`
-      - :ansible-option-choices-entry:`"powerSupplies"`
-      - :ansible-option-choices-entry:`"powerSuppliesFans"`
       - :ansible-option-choices-entry:`"sites"`
       - :ansible-option-choices-entry:`"vendors"`
 
