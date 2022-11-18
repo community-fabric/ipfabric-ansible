@@ -37,10 +37,23 @@ DOCUMENTATION = """
               - Allows connection when SSL certificates are not valid. Set to C(false) when certificated are not trusted.
             default: True
             type: boolean
-          snapshot_id:
-            description:
-              - IP Fabric snapshot IF to use by default for database actions. Defaults to C($last).
-            default: "$last"
+      snapshot_id:
+        description:
+          - IP Fabric snapshot IF to use by default for database actions. Defaults to C($last).
+        default: "$last"
+        type: string
+        required: False
+      filter:
+        description: Filter to apply to the inventory tables
+        type: dict
+        default: {}
+        required: False
+      columns:
+        description: Add columns you would like to return
+        type: list
+        elements: str
+        default: []
+        required: False
     extends_documentation_fragment:
       - inventory_cache
       - constructed
@@ -52,7 +65,7 @@ EXAMPLES = """
 
 plugin: ipfabric.ansible.inventory
 provider:
-  base_url: https://demo1.ipfabric.io/
+  base_url: https://demo1.eu.ipfabric.io/
   token: test-token
 keyed_groups:
   - key: sitename
@@ -60,6 +73,11 @@ keyed_groups:
     separator: ""
 groups:
   ciscoios: "family == 'ios'"
+filter:
+  siteName: ['like', 'L71']
+columns:
+  - uptime
+  - vendor
 """
 
 from ansible.errors import AnsibleError
@@ -68,6 +86,7 @@ from ansible.module_utils.basic import missing_required_lib
 from ansible.plugins.inventory import BaseInventoryPlugin, Constructable, Cacheable
 from ansible.inventory.group import to_safe_group_name
 import traceback
+from pprint import pformat
 
 IPFABRIC_IMP_ERR = None
 try:
@@ -89,7 +108,16 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
     _sanitize_group_name = staticmethod(to_safe_group_name)
 
     def fetch_devices(self, ipf):
-        self.devices_list = ipf.inventory.devices.all()
+        filter = self.get_option('filter')
+        columns = self.get_option('columns')
+
+        if columns:
+            if 'loginIp' not in columns:
+                columns.append('loginIp')
+            if 'hostname' not in columns:
+                columns.append('hostname')
+
+        self.devices_list = ipf.inventory.devices.all(filters=filter, columns=columns, snapshot_id=self.get_option('snapshot_id'))
 
     def get_ipf(self):
         return IPFClient(**self.get_option('provider'))
@@ -97,14 +125,17 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
     def _populate(self, records):
         for device in records:
             hostname = device['hostname']
-            if device["loginIp"] and (device['devType'] != 'ap'):
+            if device["loginIp"]:
                 new_vars = dict()
                 self.inventory.add_host(host=to_text(hostname))
+                self.inventory.set_variable(to_text(hostname), 'ansible_host', device['loginIp'])
                 for devicevar, deviceval in device.items():
                     self.inventory.set_variable(to_text(hostname), devicevar.lower(), deviceval)
                     new_vars[devicevar.lower()] = deviceval
 
                     strict = self.get_option('strict')
+
+                    self._set_composite_vars(self.get_option('compose'), new_vars, to_text(hostname), strict=strict)
                     self._add_host_to_composed_groups(self.get_option('groups'), new_vars, to_text(hostname), strict=strict)
                     self._add_host_to_keyed_groups(self.get_option("keyed_groups"), new_vars, to_text(hostname), strict=strict)
 
