@@ -350,6 +350,40 @@ Parameters
   * - .. raw:: html
 
         <div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-report"></div>
+
+      .. _ansible_collections.ipfabric.ansible.technology_info_module__parameter-report:
+
+      .. rst-class:: ansible-option-title
+
+      **report**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-report" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`string`
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-cell">
+
+      Return report information when filtering by report.
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-snapshot_id"></div>
 
       .. _ansible_collections.ipfabric.ansible.technology_info_module__parameter-snapshot_id:
@@ -375,6 +409,40 @@ Parameters
         <div class="ansible-option-cell">
 
       IP Fabric snapshot ID to use by default for database actions. Defaults to \ :literal:`False`\ .
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-sort"></div>
+
+      .. _ansible_collections.ipfabric.ansible.technology_info_module__parameter-sort:
+
+      .. rst-class:: ansible-option-title
+
+      **sort**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-sort" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`dictionary`
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-cell">
+
+      Sort IP Fabric API response.
 
 
       .. raw:: html

@@ -248,7 +248,7 @@ Parameters
 
         <div class="ansible-option-cell">
 
-      Add columns you would like to return.
+      Return specific columns from IP Fabric API.
 
 
       .. raw:: html
@@ -360,6 +360,43 @@ Parameters
         <div class="ansible-option-cell">
 
       Return report information when filtering by report.
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-sort"></div>
+
+      .. _ansible_collections.ipfabric.ansible.inventory_lookup__parameter-sort:
+
+      .. rst-class:: ansible-option-title
+
+      **sort**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-sort" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`dictionary`
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-cell">
+
+      Sort IP Fabric API response.
 
 
       .. raw:: html

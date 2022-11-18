@@ -42,6 +42,16 @@ options:
       - vendors
     required: True
     type: str
+  report:
+    description:
+      - Return report information when filtering by report.
+    type: str
+    required: False
+  sort:
+    description:
+        - Sort IP Fabric API response.
+    required: False
+    type: dict
 """
 
 EXAMPLES = """
@@ -121,11 +131,14 @@ def handle_module(ipf):
     table = ipf.module.params['table']
     filter = ipf.module.params['filter']
     columns = ipf.module.params['columns']
+    report = ipf.module.params['report']
+    sort = ipf.module.params['sort']
+    snapshot_id = ipf.module.params['snapshot_id']
 
     table = getattr(ipf.ipf.inventory, table)
 
     try:
-        data = table.all(filters=filter, columns=columns)
+        data = table.all(filters=filter, columns=columns, sort=sort, reports=report, snapshot_id=snapshot_id)
     except Exception as e:
         ipf.module.fail_json(
             f"Reponse Code: {e.response.json()['code']}. Message: {e.response.json()['message']}. Please check columns and or filters")
@@ -136,7 +149,10 @@ def handle_module(ipf):
 def main():
     argument_spec = AnsibleIPFModule.provider_argument_spec()
     argument_spec.update(
-        snapshot_id=dict(type="str", required=False),
+        snapshot_id=dict(
+			type="str", 
+			required=False
+		),
         table=dict(
             type="str",
             required=True,
@@ -152,7 +168,16 @@ def main():
             required=False,
             default=[],
             elements="str"
-        )
+        ),
+        sort=dict(
+			type="dict",
+			required=False,
+			default={}
+		),
+		report=dict(
+			type='str',
+			required=False
+		)
     )
 
     module = AnsibleModule(argument_spec=argument_spec,

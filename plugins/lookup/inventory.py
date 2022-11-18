@@ -57,10 +57,15 @@ DOCUMENTATION = """
             type: dict
         columns:
             description:
-                - Add columns you would like to return.
+                - Return specific columns from IP Fabric API.
             required: False
             type: list
             elements: str
+        sort:
+            description:
+                - Sort IP Fabric API response.
+            required: False
+            type: dict
         report:
             description:
                 - Return report information when filtering by report.
