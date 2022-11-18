@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 from __future__ import (absolute_import, division, print_function)
 
 __metaclass__ = type
@@ -15,7 +13,7 @@ DOCUMENTATION = """
         _terms:
             description:
                 - The IP Fabric inventory table to query
-            choices: 
+            choices:
               - devices
               - families
               - fans
