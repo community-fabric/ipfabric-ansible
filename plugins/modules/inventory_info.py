@@ -38,8 +38,6 @@ options:
       - phones
       - platforms
       - pn
-      - powerSupplies
-      - powerSuppliesFans
       - sites
       - vendors
     required: True
@@ -114,8 +112,6 @@ choices = [
     'phones',
     'platforms',
     'pn',
-    'powerSupplies',
-    'powerSuppliesFans',
     'sites',
     'vendors'
 ]

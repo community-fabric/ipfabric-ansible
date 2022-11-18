@@ -11,7 +11,20 @@ DOCUMENTATION = """
     options:
         _terms:
             description:
-                - The Nautobot object type to query
+                - The IP Fabric inventory table to query
+            choices: 
+              - devices
+              - families
+              - fans
+              - hosts
+              - interfaces
+              - models
+              - modules
+              - phones
+              - platforms
+              - pn
+              - sites
+              - vendors
             required: True
         base_url:
             description:
@@ -58,7 +71,7 @@ DOCUMENTATION = """
 
 EXAMPLES = """
 - name: Get devices using lookup inventory plugin (IPF_URL and IPF_TOKEN environment variables set)
-  ansible.vuiltin.debug:
+  ansible.builtin.debug:
     msg: "{{ lookup('ipfabric.ansible.inventory', 'devices') }}"
 
 - name: Get devices using lookup inventory plugin
@@ -101,6 +114,21 @@ else:
     HAS_IPFABRIC = None
 
 display = Display()
+
+choices = [
+    'devices',
+    'families',
+    'fans',
+    'hosts',
+    'interfaces',
+    'models',
+    'modules',
+    'phones',
+    'platforms',
+    'pn',
+    'sites',
+    'vendors'
+]
 
 
 def get_endpoint(ipfabric, term):
@@ -168,6 +196,9 @@ class LookupModule(LookupBase):
 
         if not isinstance(terms, list):
             terms = [terms]
+
+        if terms[0] not in choices:
+            raise AnsibleLookupError(f'{terms[0]} not available please select from one of the following: {choices}')
 
         if filter:
             display.v(f'Filter is: {pformat(filter)}')

@@ -56,6 +56,12 @@ Inventory Plugins
 * :ref:`inventory inventory <ansible_collections.ipfabric.ansible.inventory_inventory>` -- IP Fabric inventory source
 
 
+Lookup Plugins
+~~~~~~~~~~~~~~
+
+* :ref:`inventory lookup <ansible_collections.ipfabric.ansible.inventory_lookup>` -- Queries and returns IP Fabric information.
+
+
 
 .. seealso::
 
@@ -66,6 +72,7 @@ Inventory Plugins
     :hidden:
 
     inventory_inventory
+    inventory_lookup
     inventory_info_module
     snapshot_module
     snapshot_info_module
