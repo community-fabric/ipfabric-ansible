@@ -36,8 +36,6 @@ def test_populate_hostvars(inventory, payload, mocker):
     inventory._populate(payload)
     host_foo = inventory.inventory.get_host("IOS1")
     host_bar = inventory.inventory.get_host("SRX1")
-    print(dir(inventory.inventory))
-    print(inventory.inventory.hosts)
 
     assert host_foo.vars['vendor'] == 'cisco'
     assert host_bar.vars['version'] == '12.1X46-D25.7'

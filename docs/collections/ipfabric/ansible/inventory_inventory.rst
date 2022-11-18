@@ -426,6 +426,47 @@ Parameters
   * - .. raw:: html
 
         <div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-columns"></div>
+
+      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-columns:
+
+      .. rst-class:: ansible-option-title
+
+      **columns**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-columns" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-cell">
+
+      Add columns you would like to return
+
+
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-default-bold:`Default:` :ansible-option-default:`[]`
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-compose"></div>
 
       .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-compose:
@@ -454,6 +495,47 @@ Parameters
         <div class="ansible-option-cell">
 
       Create vars from jinja2 expressions.
+
+
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-default-bold:`Default:` :ansible-option-default:`{}`
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-filter"></div>
+
+      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-filter:
+
+      .. rst-class:: ansible-option-title
+
+      **filter**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-filter" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`dictionary`
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-cell">
+
+      Filter to apply to the inventory tables
 
 
       .. rst-class:: ansible-option-line
@@ -1011,47 +1093,6 @@ Parameters
   * - .. raw:: html
 
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
-        <div class="ansibleOptionAnchor" id="parameter-provider/snapshot_id"></div>
-
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-provider/snapshot_id:
-
-      .. rst-class:: ansible-option-title
-
-      **snapshot_id**
-
-      .. raw:: html
-
-        <a class="ansibleOptionLink" href="#parameter-provider/snapshot_id" title="Permalink to this option"></a>
-
-      .. rst-class:: ansible-option-type-line
-
-      :ansible-option-type:`string`
-
-
-
-
-      .. raw:: html
-
-        </div>
-
-    - .. raw:: html
-
-        <div class="ansible-option-indent-desc"></div><div class="ansible-option-cell">
-
-      IP Fabric snapshot IF to use by default for database actions. Defaults to \ :literal:`$last`\ .
-
-
-      .. rst-class:: ansible-option-line
-
-      :ansible-option-default-bold:`Default:` :ansible-option-default:`"$last"`
-
-      .. raw:: html
-
-        </div>
-
-  * - .. raw:: html
-
-        <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/token"></div>
 
       .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-provider/token:
@@ -1131,6 +1172,47 @@ Parameters
 
         </div>
 
+
+  * - .. raw:: html
+
+        <div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-snapshot_id"></div>
+
+      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-snapshot_id:
+
+      .. rst-class:: ansible-option-title
+
+      **snapshot_id**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-snapshot_id" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`string`
+
+
+
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-cell">
+
+      IP Fabric snapshot IF to use by default for database actions. Defaults to \ :literal:`$last`\ .
+
+
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-default-bold:`Default:` :ansible-option-default:`"$last"`
+
+      .. raw:: html
+
+        </div>
 
   * - .. raw:: html
 
@@ -1265,7 +1347,7 @@ Examples
 
     plugin: ipfabric.ansible.inventory
     provider:
-      base_url: https://demo1.ipfabric.io/
+      base_url: https://demo1.eu.ipfabric.io/
       token: test-token
     keyed_groups:
       - key: sitename
@@ -1273,6 +1355,11 @@ Examples
         separator: ""
     groups:
       ciscoios: "family == 'ios'"
+    filter:
+      siteName: ['like', 'L71']
+    columns:
+      - uptime
+      - vendor
 
 
 
