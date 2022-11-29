@@ -342,6 +342,7 @@ options:
         - Sort IP Fabric API response.
     required: False
     type: dict
+    default: {}
 """
 
 EXAMPLES = """
