@@ -5,9 +5,9 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 DOCUMENTATION = """
-module: technology_info
-short_description: Fetch technology tables from IP Fabric.
-description: Fetch technology tables from IP Fabric.
+module: table_info
+short_description: Fetch tables from IP Fabric.
+description: Fetch tables from IP Fabric.
 author:
   - Alex Gittings (@minitriga)
 extends_documentation_fragment:
@@ -17,11 +17,11 @@ options:
     description: IP Fabric snapshot ID to use by default for database actions. Defaults to C(False).
     type: str
   filter:
-    description: Filter to apply to the technology table
+    description: Filter to apply to the table query.
     type: dict
     default: {}
   columns:
-    description: Add columns you would like to return
+    description: Columns that are to be returned upon successful query.
     type: list
     elements: str
     default: []
@@ -34,6 +34,7 @@ options:
       - fhrp
       - interfaces
       - ip_telephony
+      - inventory
       - load_balancing
       - managed_networks
       - management
@@ -54,7 +55,7 @@ options:
     required: True
     type: str
   table:
-    description: Table to use from technology table
+    description: Specific table to return from API.
     choices:
       - arp_table
       - ipv6_neighbor_discovery
@@ -128,6 +129,18 @@ options:
       - tunnels_ipv4
       - tunnels_ipv6
       - phones
+      - devices
+      - families
+      - fans
+      - hosts
+      - interfaces
+      - models
+      - modules
+      - phones
+      - platforms
+      - pn
+      - sites
+      - vendors
       - virtual_servers
       - virtual_servers_f5_partitions
       - virtual_servers_pool_members
@@ -332,8 +345,39 @@ options:
 """
 
 EXAMPLES = """
+- name: Get devices table from latest snapshot
+  ipfabric.ansible.table_info:
+    provider:
+      base_url: "https://demo1.eu.ipfabric.io/"
+      token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
+    technology: inventory
+    table: devices
+
+- name: Get devices for a site on specific snapshot and filter by site
+  ipfabric.ansible.table_info:
+    provider:
+      base_url: "https://demo1.eu.ipfabric.io/"
+      token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
+    snapshot_id: bbc15e2e-4e75-4c54-9526-b6d8d3f9ff8b
+    technology: inventory
+    table: devices
+    filter: {"and": [{"siteName": ["eq","MERAKI_SITE"]}]}
+
+- name: Get devices for a site and only return specific columns
+  ipfabric.ansible.table_info:
+    provider:
+      base_url: "https://demo1.eu.ipfabric.io/"
+      token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
+    technology: inventory
+    table: devices
+    filter: {"and": [{"siteName": ["eq","MERAKI_SITE"]}]}
+    columns:
+      - hostname
+      - family
+      - loginIp
+
 - name: Get Technology Info
-  ipfabric.ansible.technology_info:
+  ipfabric.ansible.table_info:
     provider:
       base_url: "https://demo1.eu.ipfabric.io/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -341,7 +385,7 @@ EXAMPLES = """
     table: ospf_interfaces
 
 - name: Filter technology table
-  ipfabric.ansible.technology_info:
+  ipfabric.ansible.table_info:
     provider:
       base_url: "https://demo1.eu.ipfabric.io/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -351,7 +395,7 @@ EXAMPLES = """
     filter: {"and": [{"ip": ["eq","10.241.21.2"]}]}
 
 - name: Filter and select columns on technology table
-  ipfabric.ansible.technology_info:
+  ipfabric.ansible.table_info:
     provider:
       base_url: "https://demo1.eu.ipfabric.io/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -369,7 +413,7 @@ EXAMPLES = """
 
 RETURN = """
 data:
-  description: IP Fabric technology table
+  description: IP Fabric table data.
   elements: dict
   returned: success
   type: list
@@ -485,6 +529,20 @@ choices = {
         "tunnels_ipv6",
     ],
     "ip_telephony": ["phones"],
+    "inventory": [
+        'devices',
+        'families',
+        'fans',
+        'hosts',
+        'interfaces',
+        'models',
+        'modules',
+        'phones',
+        'platforms',
+        'pn',
+        'sites',
+        'vendors'
+    ],
     "load_balancing": [
         "virtual_servers",
         "virtual_servers_f5_partitions",
@@ -723,8 +781,11 @@ def handle_module(ipf):
         ipf.module.fail_json(
             f"{table} is not in the {technology} group. Available choices are {choices[technology]}")
 
-    tech = getattr(ipf.ipf.technology, technology)
-    table = getattr(tech, table)
+    if technology == 'inventory':
+        table = getattr(ipf.ipf.inventory, table)
+    else:
+        tech = getattr(ipf.ipf.technology, technology)
+        table = getattr(tech, table)
 
     try:
         data = table.all(filters=filter, columns=columns, sort=sort, reports=report, snapshot_id=snapshot_id)
@@ -738,7 +799,7 @@ def main():
     argument_spec = AnsibleIPFModule.provider_argument_spec()
     argument_spec.update(
         snapshot_id=dict(
-            type="str", 
+            type="str",
             required=False
         ),
         technology=dict(
@@ -766,11 +827,11 @@ def main():
             type="dict",
             required=False,
             default={}
-      ),
+        ),
         report=dict(
             type='str',
             required=False
-      )
+        )
     )
 
     module = AnsibleModule(argument_spec=argument_spec,

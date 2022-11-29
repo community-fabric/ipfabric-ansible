@@ -6,6 +6,5 @@ plugins/inventory/inventory.py compile-3.5!skip
 plugins/inventory/inventory.py import-3.5!skip
 plugins/modules/snapshot.py validate-modules:missing-gplv3-license
 plugins/modules/snapshot_info.py validate-modules:missing-gplv3-license
-plugins/modules/technology_info.py validate-modules:missing-gplv3-license
-plugins/modules/inventory_info.py validate-modules:missing-gplv3-license
+plugins/modules/table_info.py validate-modules:missing-gplv3-license
 plugins/lookup/inventory.py validate-modules:missing-gplv3-license
