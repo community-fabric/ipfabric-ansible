@@ -26,7 +26,7 @@
 
 .. Anchors
 
-.. _ansible_collections.ipfabric.ansible.inventory_lookup:
+.. _ansible_collections.ipfabric.ansible.table_info_lookup:
 
 .. Anchors: short name for ansible.builtin
 
@@ -36,8 +36,8 @@
 
 .. Title
 
-ipfabric.ansible.inventory lookup -- Queries and returns IP Fabric information.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ipfabric.ansible.table_info lookup -- Queries and returns IP Fabric information.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. Collection note
 
@@ -46,9 +46,9 @@ ipfabric.ansible.inventory lookup -- Queries and returns IP Fabric information.
 
     To install it, use: :code:`ansible-galaxy collection install ipfabric.ansible`.
     You need further requirements to be able to use this lookup plugin,
-    see :ref:`Requirements <ansible_collections.ipfabric.ansible.inventory_lookup_requirements>` for details.
+    see :ref:`Requirements <ansible_collections.ipfabric.ansible.table_info_lookup_requirements>` for details.
 
-    To use it in a playbook, specify: :code:`ipfabric.ansible.inventory`.
+    To use it in a playbook, specify: :code:`ipfabric.ansible.table_info`.
 
 .. version_added
 
@@ -73,7 +73,7 @@ Synopsis
 
 .. Requirements
 
-.. _ansible_collections.ipfabric.ansible.inventory_lookup_requirements:
+.. _ansible_collections.ipfabric.ansible.table_info_lookup_requirements:
 
 Requirements
 ------------
@@ -104,7 +104,7 @@ Terms
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-_terms"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_lookup__parameter-_terms:
+      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-_terms:
 
       .. rst-class:: ansible-option-title
 
@@ -129,25 +129,7 @@ Terms
 
         <div class="ansible-option-cell">
 
-      The IP Fabric inventory table to query
-
-
-      .. rst-class:: ansible-option-line
-
-      :ansible-option-choices:`Choices:`
-
-      - :ansible-option-choices-entry:`"devices"`
-      - :ansible-option-choices-entry:`"families"`
-      - :ansible-option-choices-entry:`"fans"`
-      - :ansible-option-choices-entry:`"hosts"`
-      - :ansible-option-choices-entry:`"interfaces"`
-      - :ansible-option-choices-entry:`"models"`
-      - :ansible-option-choices-entry:`"modules"`
-      - :ansible-option-choices-entry:`"phones"`
-      - :ansible-option-choices-entry:`"platforms"`
-      - :ansible-option-choices-entry:`"pn"`
-      - :ansible-option-choices-entry:`"sites"`
-      - :ansible-option-choices-entry:`"vendors"`
+      The IP Fabric technology and table to query.
 
 
       .. raw:: html
@@ -179,7 +161,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-base_url"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_lookup__parameter-base_url:
+      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-base_url:
 
       .. rst-class:: ansible-option-title
 
@@ -223,7 +205,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-columns"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_lookup__parameter-columns:
+      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-columns:
 
       .. rst-class:: ansible-option-title
 
@@ -260,7 +242,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-filter"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_lookup__parameter-filter:
+      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-filter:
 
       .. rst-class:: ansible-option-title
 
@@ -297,7 +279,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-ipf_version"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_lookup__parameter-ipf_version:
+      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-ipf_version:
 
       .. rst-class:: ansible-option-title
 
@@ -334,7 +316,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-report"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_lookup__parameter-report:
+      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-report:
 
       .. rst-class:: ansible-option-title
 
@@ -371,7 +353,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-sort"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_lookup__parameter-sort:
+      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-sort:
 
       .. rst-class:: ansible-option-title
 
@@ -408,7 +390,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-token"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_lookup__parameter-token:
+      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-token:
 
       .. rst-class:: ansible-option-title
 
@@ -452,7 +434,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-verify"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_lookup__parameter-verify:
+      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-verify:
 
       .. rst-class:: ansible-option-title
 
@@ -512,23 +494,23 @@ Examples
     
     - name: Get devices using lookup inventory plugin (IPF_URL and IPF_TOKEN environment variables set)
       ansible.builtin.debug:
-        msg: "{{ lookup('ipfabric.ansible.inventory', 'devices') }}"
+        msg: "{{ lookup('ipfabric.ansible.table_info', 'inventory', 'devices') }}"
 
     - name: Get devices using lookup inventory plugin
       ansible.builtin.debug:
-        msg: "{{ lookup('ipfabric.ansible.inventory', 'devices', base_url='https://<url_here>/', token='<token_here>') }}"
+        msg: "{{ lookup('ipfabric.ansible.table_info', 'inventory', 'devices', base_url='https://<url_here>/', token='<token_here>') }}"
 
     - name: Get sites and sort by name.
       ansible.builtin.debug:
-        msg: "{{ lookup('ipfabric.ansible.inventory', 'sites', sort={'order': 'asc', 'column': 'siteName'}) }}"
+        msg: "{{ lookup('ipfabric.ansible.table_info', 'inventory', 'sites', sort={'order': 'asc', 'column': 'siteName'}) }}"
 
-    - name: Get interfaces filtered by device and sorted by interface
+    - name: Get interfaces filtered by device (if technology is not specified the default is inventory)
       ansible.builtin.debug:
-        msg: "{{ lookup('ipfabric.ansible.inventory', 'interfaces', filter={'hostname': ['eq', 'L38AC20']}, sort={'order': 'asc', 'column':'intName'})}}"
+        msg: "{{ lookup('ipfabric.ansible.table_info', 'interfaces', filter={'hostname': ['eq', 'L38AC20']}, sort={'order': 'asc', 'column':'intName'})}}"
 
     - name: Get interface that match intent verification rule
       ansible.builtin.debug:
-        msg: "{{ lookup('ipfabric.ansible.inventory', 'interfaces', filter={'duplex':['color','eq','20']}, report='/inventory/interfaces')}}"
+        msg: "{{ lookup('ipfabric.ansible.table_info', 'inventory', 'interfaces', filter={'duplex':['color','eq','20']}, report='/inventory/interfaces')}}"
 
 
 
@@ -557,7 +539,7 @@ Return Value
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="return-_list"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_lookup__return-_list:
+      .. _ansible_collections.ipfabric.ansible.table_info_lookup__return-_list:
 
       .. rst-class:: ansible-option-title
 

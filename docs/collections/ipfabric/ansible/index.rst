@@ -44,10 +44,9 @@ These are the plugins in the ipfabric.ansible collection:
 Modules
 ~~~~~~~
 
-* :ref:`inventory_info module <ansible_collections.ipfabric.ansible.inventory_info_module>` -- Fetch inventory tables from IP Fabric.
 * :ref:`snapshot module <ansible_collections.ipfabric.ansible.snapshot_module>` -- Create, Update, Load, Unload or Delete Snapshots within IP Fabric
 * :ref:`snapshot_info module <ansible_collections.ipfabric.ansible.snapshot_info_module>` -- Fetch Snapshot information within IP Fabric.
-* :ref:`technology_info module <ansible_collections.ipfabric.ansible.technology_info_module>` -- Fetch technology tables from IP Fabric.
+* :ref:`table_info module <ansible_collections.ipfabric.ansible.table_info_module>` -- Fetch tables from IP Fabric.
 
 
 Inventory Plugins
@@ -59,7 +58,7 @@ Inventory Plugins
 Lookup Plugins
 ~~~~~~~~~~~~~~
 
-* :ref:`inventory lookup <ansible_collections.ipfabric.ansible.inventory_lookup>` -- Queries and returns IP Fabric information.
+* :ref:`table_info lookup <ansible_collections.ipfabric.ansible.table_info_lookup>` -- Queries and returns IP Fabric information.
 
 
 
@@ -72,8 +71,7 @@ Lookup Plugins
     :hidden:
 
     inventory_inventory
-    inventory_lookup
-    inventory_info_module
+    table_info_lookup
     snapshot_module
     snapshot_info_module
-    technology_info_module
+    table_info_module

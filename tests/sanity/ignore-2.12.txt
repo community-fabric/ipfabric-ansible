@@ -1,5 +1,3 @@
 plugins/modules/snapshot.py validate-modules:missing-gplv3-license
 plugins/modules/snapshot_info.py validate-modules:missing-gplv3-license
-plugins/modules/technology_info.py validate-modules:missing-gplv3-license
-plugins/modules/inventory_info.py validate-modules:missing-gplv3-license
-plugins/lookup/inventory.py validate-modules:missing-gplv3-license
+plugins/modules/table_info.py validate-modules:missing-gplv3-license
