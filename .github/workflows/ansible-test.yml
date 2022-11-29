@@ -54,7 +54,7 @@ jobs:
           - devel
         # - milestone
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       # Run sanity tests inside a Docker container.
       # The docker container has all the pinned dependencies that are
@@ -67,7 +67,7 @@ jobs:
           target-python-version: "3.9"
 
   units:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     name: Units (Ⓐ${{ matrix.ansible }})
     strategy:
       # As soon as the first unit test fails, cancel the others to free up the CI queue
@@ -97,7 +97,7 @@ jobs:
     needs:
       - sanity
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Decide whether the needed jobs succeeded or failed
