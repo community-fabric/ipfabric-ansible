@@ -1,3 +1,4 @@
+from __future__ import absolute_import, division, print_function
 from ansible.plugins.lookup import LookupBase
 from ansible_collections.ipfabric.ansible.plugins.module_utils.module import AnsibleIPFClientError
 from ansible_collections.ipfabric.ansible.plugins.module_utils.module import check_sdk
