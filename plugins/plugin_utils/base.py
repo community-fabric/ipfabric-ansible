@@ -6,6 +6,8 @@ from ansible_collections.ipfabric.ansible.plugins.module_utils.module import Ans
 from ansible_collections.ipfabric.ansible.plugins.module_utils.module import get_client
 from ansible.utils.display import Display
 
+__metaclass__ = type
+
 display = Display()
 
 
