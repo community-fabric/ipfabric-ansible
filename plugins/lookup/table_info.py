@@ -77,7 +77,8 @@ EXAMPLES = """
 
 - name: Get interfaces filtered by device and sorted by interface
   ansible.builtin.debug:
-    msg: "{{ lookup('ipfabric.ansible.table_info', 'inventory', 'interfaces', filter={'hostname': ['eq', 'L38AC20']}, sort={'order': 'asc', 'column':'intName'})}}"
+    msg: 
+      - "{{ lookup('ipfabric.ansible.table_info', 'inventory', 'interfaces', filter={'hostname': ['eq', 'L38AC20']}, sort={'order': 'asc', 'column':'intName'})}}"
 
 - name: Get interface that match intent verification rule
   ansible.builtin.debug:
