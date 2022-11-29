@@ -3,7 +3,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 DOCUMENTATION = """
-    name: inventory
+    name: table_info
     short_description: Queries and returns IP Fabric information.
     description:
         - Queries IP Fabric via its API and returns information.
@@ -12,20 +12,7 @@ DOCUMENTATION = """
     options:
         _terms:
             description:
-                - The IP Fabric inventory table to query
-            choices:
-              - devices
-              - families
-              - fans
-              - hosts
-              - interfaces
-              - models
-              - modules
-              - phones
-              - platforms
-              - pn
-              - sites
-              - vendors
+                - The IP Fabric technology and table to query.
             required: True
         base_url:
             description:
@@ -109,7 +96,10 @@ from pprint import pformat
 from ansible.errors import AnsibleLookupError
 from ansible.module_utils.six import raise_from
 from ansible.utils.display import Display
-from ansible.plugins.lookup import LookupBase
+from ansible_collections.ipfabric.ansible.plugins.module_utils.module import AnsibleIPFModule
+from ansible_collections.ipfabric.ansible.plugins.module_utils.module import table_choices
+from ansible_collections.ipfabric.ansible.plugins.module_utils.module import all_tables
+from ansible_collections.ipfabric.ansible.plugins.plugin_utils.base import IPFLookupBase
 
 
 try:
@@ -121,66 +111,22 @@ else:
 
 display = Display()
 
-choices = [
-    'devices',
-    'families',
-    'fans',
-    'hosts',
-    'interfaces',
-    'models',
-    'modules',
-    'phones',
-    'platforms',
-    'pn',
-    'sites',
-    'vendors'
-]
 
-
-def get_endpoint(ipfabric, term):
-
-    endpoint_map = {
-        "devices": ipfabric.inventory.devices,
-        "families": ipfabric.inventory.families,
-        "fans": ipfabric.inventory.fans,
-        "hosts": ipfabric.inventory.hosts,
-        "interfaces": ipfabric.inventory.interfaces,
-        "models": ipfabric.inventory.models,
-        "modules": ipfabric.inventory.modules,
-        "phones": ipfabric.inventory.phones,
-        "platforms": ipfabric.inventory.platforms,
-        "pn": ipfabric.inventory.pn,
-        "sites": ipfabric.inventory.sites,
-        "vendors": ipfabric.inventory.vendors,
-    }
-
-    return endpoint_map[term]
-
-
-class LookupModule(LookupBase):
+class LookupModule(IPFLookupBase):
 
     def run(self, terms, variables=None, **kwargs):
-        self.set_options(var_options=variables, direct=kwargs)
+        super().run(terms, variables, **kwargs)
 
-        if HAS_IPFABRIC:
-            raise_from(
-                AnsibleLookupError(
-                    'IPFabric must be installed to use this plugin'),
-                HAS_IPFABRIC
-            )
-
-        token = kwargs.get('token')
-        verify = kwargs.get('verify')
-        version = kwargs.get('api_version')
-        base_url = kwargs.get('url')
         snapshot_id = kwargs.get('snapshot_id')
         sort = kwargs.get('sort', {})
         filter = kwargs.get('filter', {})
         columns = kwargs.get('columns', [])
         report = kwargs.get('report')
 
-        if len(terms) > 1:
-            raise AnsibleLookupError('Please only select one table to return.')
+        client = self.client(**kwargs)
+
+        if len(terms) > 2:
+            raise AnsibleLookupError('Only two terms are accepted.')
 
         if not isinstance(columns, list):
             raise AnsibleLookupError('Columns must be a list.')
@@ -191,33 +137,32 @@ class LookupModule(LookupBase):
         if not isinstance(sort, dict):
             raise AnsibleLookupError('sort must be a dictionary.')
 
-        provider = {
-            'base_url': base_url,
-            'token': token,
-            'api_version': version,
-            'verify': verify
-        }
-
-        ipf = IPFClient(**provider)
-
         if not isinstance(terms, list):
             terms = [terms]
-
-        if terms[0] not in choices:
-            raise AnsibleLookupError(f'{terms[0]} not available please select from one of the following: {choices}')
 
         if filter:
             display.v(f'Filter is: {pformat(filter)}')
 
         results = []
 
-        for term in terms:
-            table = get_endpoint(ipf, term)
-            table_results = table.all(
-                filters=filter, columns=columns, sort=sort, reports=report, snapshot_id=snapshot_id)
+        if len(terms) == 2:
+            technology = terms[0]
+            table = terms[1]
+        elif len(terms) == 1:
+            technology = 'inventory'
+            table = terms[0]
+        else:
+            raise AnsibleLookupError("No terms provided.")
 
-            display.vvvv(pformat(table_results))
-            for data in table_results:
-                results.append(data)
+        if technology not in table_choices.keys():
+            raise AnsibleLookupError(message=f'{technology} not in available choices: {table_choices.keys()}')
+
+        if table not in all_tables:
+            raise AnsibleLookupError(message=f'{table} not in available choices: {table_choices[technology]}')
+
+        table_results = self.table_info(client, technology, table, filter, columns, report, sort, snapshot_id)
+
+        for data in table_results:
+            results.append(data)
 
         return results
