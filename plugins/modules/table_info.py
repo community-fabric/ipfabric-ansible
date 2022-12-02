@@ -136,6 +136,7 @@ options:
       - interfaces
       - models
       - modules
+      - os_version_consistency
       - phones
       - platforms
       - pn

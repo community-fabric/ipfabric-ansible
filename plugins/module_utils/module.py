@@ -97,6 +97,7 @@ table_choices = {
         'interfaces',
         'models',
         'modules',
+        'os_version_consistency',
         'phones',
         'platforms',
         'pn',
