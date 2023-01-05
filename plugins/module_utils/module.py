@@ -411,10 +411,7 @@ class AnsibleIPFModule(object):
         self.models = models
 
     def get_snapshot(self, snapshot_id):
-        resp = self.ipf.get(f"snapshots/{snapshot_id}")
-        resp.raise_for_status()
-        snap = self.models.Snapshot(**resp.json())
-        return snap
+        return self.ipf.get_snapshot(snapshot_id=snapshot_id)
 
     def get_snapshots_list(self):
         resp = self.ipf.get_snapshots()
