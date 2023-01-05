@@ -24,7 +24,7 @@ class IPFLookupBase(LookupBase):
 
     def client(self, **kwargs):
         provider = {
-            'base_url': kwargs.get('url'),
+            'base_url': kwargs.get('base_url'),
             'version': kwargs.get('api_version'),
             'verify': kwargs.get('verify'),
             'token': kwargs.get('token')
