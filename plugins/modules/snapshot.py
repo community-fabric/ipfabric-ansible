@@ -95,11 +95,11 @@ class IPFSnapshot(object):
                 if resp.json()['success']:
                     not_found = True
                     while not_found:
-                        snapshots = self.rest.ipf.get_snapshots()
+                        snapshots = self.rest.ipf._get_snapshots()
                         for k, v in snapshots.items():
-                            if v.state == 'discovering':
+                            if v['state'] == 'discovering':
                                 self.module.exit_json(
-                                    changed=True, msg=f"Running Discovery {k}", data=v.dict())
+                                    changed=True, msg=f"Running Discovery {k}", data=v)
                                 not_found = False
             else:
                 name = self.module.params.get('snapshot_name', None)
