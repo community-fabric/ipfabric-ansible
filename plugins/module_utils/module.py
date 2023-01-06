@@ -384,7 +384,7 @@ def check_sdk():
 
 def get_client(**kwargs):
     try:
-        ipf = IPFClient(**kwargs)
+        ipf = IPFClient(**kwargs, unloaded=True)
         models = ipf_models
     except httpx.HTTPStatusError as exc:
         raise AnsibleIPFClientError(message=f"Failed to connect: {exc.response.json()['message']} ({exc.response.json()['code']})")

@@ -153,7 +153,17 @@ class IPFSnapshot(object):
         elif state in ['clone']:
             resp = self.rest.ipf.post(f"snapshots/{snapshot_id}/clone")
             if resp.status_code == 204:
-                self.module.exit_json(changed=True, msg=f"Successfully cloned snapshot {snapshot_id}", data={"changed": True})
+                cloning = True
+                new_snapshot_id = ""
+                while cloning:
+                    all_snapshots = self.rest.ipf.get_snapshots()
+                    for k, v in all_snapshots.items():
+                        if not v.loaded and 'clone' in v.name and v.start == all_snapshots[snapshot_id].start:
+                            loaded = all_snapshots[k].load(self.rest.ipf)
+                            new_snapshot_id = k
+                            if loaded:
+                                cloning = False
+                self.module.exit_json(changed=True, msg=f"Successfully cloned snapshot {snapshot_id}", data={"changed": True, "snapshot_id": new_snapshot_id})
         elif state in ['rediscover']:
             devices = self.module.params.get('devices', [])
 
