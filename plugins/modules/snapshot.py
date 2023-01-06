@@ -78,6 +78,7 @@ EXAMPLES = '''
 
 from ansible_collections.ipfabric.ansible.plugins.module_utils.module import AnsibleIPFModule
 from ansible.module_utils.basic import AnsibleModule
+import time
 
 
 class IPFSnapshot(object):
@@ -153,18 +154,21 @@ class IPFSnapshot(object):
             if resp.status_code == 204:
                 cloning = True
                 new_snapshot_id = ""
+                new_snapshot = None
+                is_loaded = True
                 while cloning:
                     all_snapshots = self.rest.ipf.get_snapshots()
                     for k, v in all_snapshots.items():
                         if not v.loaded and 'clone' in v.name and v.start == all_snapshots[snapshot_id].start:
-                            loaded = all_snapshots[k].load(self.rest.ipf)
                             new_snapshot_id = k
-                            if loaded:
-                                is_loaded = True
-                                while is_loaded:
-                                    if self.rest.ipf.inventory.devices.count(snapshot_id=new_snapshot_id) > 0:
-                                        is_loaded = False
-                                cloning = False
+                            new_snapshot = v
+                            cloning = False
+
+                if new_snapshot.load(self.rest.ipf, timeout=3, retry=25):
+                    while is_loaded:
+                        time.sleep(2)
+                        if self.rest.ipf.inventory.devices.count(snapshot_id=new_snapshot_id) > 0:
+                            is_loaded = False
                 self.module.exit_json(changed=True, msg=f"Successfully cloned snapshot {snapshot_id}", data={"changed": True, "snapshot_id": new_snapshot_id})
         elif state in ['rediscover']:
             devices = self.module.params.get('devices', [])
