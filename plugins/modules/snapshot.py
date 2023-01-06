@@ -117,13 +117,11 @@ class IPFSnapshot(object):
                 else:
                     self.module.exit_json(changed=False, msg="Something wrong", data=resp.json())
         elif state in ['load', 'unload']:
-            # raise Exception(state)
             mapping = {
                 "load": "loaded",
                 "unload": "unloaded"
             }
             resp = self.rest.ipf.get(f"snapshots/{snapshot_id}")
-            # raise Exception(state)
             if resp.json()['state'] == mapping[state]:
                 self.module.exit_json(changed=False, msg=f"Snapshot {snapshot_id} already {mapping[state]}", data=resp.json())
             elif resp.json()['locked']:
@@ -162,6 +160,10 @@ class IPFSnapshot(object):
                             loaded = all_snapshots[k].load(self.rest.ipf)
                             new_snapshot_id = k
                             if loaded:
+                                is_loaded = True
+                                while is_loaded:
+                                    if self.rest.ipf.inventory.devices.count(snapshot_id=new_snapshot_id) > 0:
+                                        is_loaded = False
                                 cloning = False
                 self.module.exit_json(changed=True, msg=f"Successfully cloned snapshot {snapshot_id}", data={"changed": True, "snapshot_id": new_snapshot_id})
         elif state in ['rediscover']:
