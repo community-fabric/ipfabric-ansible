@@ -44,9 +44,9 @@ These are the plugins in the community_fabric.ansible collection:
 Modules
 ~~~~~~~
 
-* :ref:`snapshot module <ansible_collections.community_fabric.ansible.snapshot_module>` -- 
-* :ref:`snapshot_info module <ansible_collections.community_fabric.ansible.snapshot_info_module>` -- 
-* :ref:`table_info module <ansible_collections.community_fabric.ansible.table_info_module>` -- 
+* :ref:`snapshot module <ansible_collections.community_fabric.ansible.snapshot_module>` -- Create, Update, Load, Unload or Delete Snapshots within IP Fabric
+* :ref:`snapshot_info module <ansible_collections.community_fabric.ansible.snapshot_info_module>` -- Fetch Snapshot information within IP Fabric.
+* :ref:`table_info module <ansible_collections.community_fabric.ansible.table_info_module>` -- Fetch tables from IP Fabric.
 
 
 Inventory Plugins

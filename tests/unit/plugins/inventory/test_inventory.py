@@ -4,7 +4,7 @@ __metaclass__ = type
 import pytest
 import httpx
 from unittest.mock import MagicMock
-from ansible_collections.ipfabric.ansible.plugins.inventory.inventory import InventoryModule
+from ansible_collections.community_fabric.ansible.plugins.inventory.inventory import InventoryModule
 from ansible.parsing.dataloader import DataLoader
 from ansible.inventory.data import InventoryData
 from ansible.template import Templar

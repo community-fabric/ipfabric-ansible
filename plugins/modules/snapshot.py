@@ -11,7 +11,7 @@ description: Create, Update, Load, Unload or Delete Snapshots within IP Fabric
 author:
   - Alex Gittings (@minitriga)
 extends_documentation_fragment:
-  - ipfabric.ansible.provider
+  - community_fabric.ansible.provider
 options:
   state:
     description:
@@ -36,13 +36,13 @@ options:
 
 EXAMPLES = '''
 - name: Start Snapshot
-  ipfabric.ansible.snapshot:
+  community_fabric.ansible.snapshot:
     provider:
       base_url: "https://demo1.ipfabric.io/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
 
 - name: Delete Snapshot
-  ipfabric.ansible.snapshot:
+  community_fabric.ansible.snapshot:
     provider:
       base_url: "https://10.194.50.6/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -50,7 +50,7 @@ EXAMPLES = '''
     state: absent
 
 - name: Unload Snapshot
-  ipfabric.ansible.snapshot:
+  community_fabric.ansible.snapshot:
     provider:
       base_url: "https://10.194.50.6/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -58,7 +58,7 @@ EXAMPLES = '''
     state: unload
 
 - name: Clone Snapshot
-  ipfabric.ansible.snapshot:
+  community_fabric.ansible.snapshot:
     provider:
       base_url: "https://10.194.50.6/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -66,7 +66,7 @@ EXAMPLES = '''
     state: clone
 
 - name: Clone Snapshot
-  ipfabric.ansible.snapshot:
+  community_fabric.ansible.snapshot:
     provider:
       base_url: "https://10.194.50.6/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -76,7 +76,7 @@ EXAMPLES = '''
     state: rediscover
 '''
 
-from ansible_collections.ipfabric.ansible.plugins.module_utils.module import AnsibleIPFModule
+from ansible_collections.community_fabric.ansible.plugins.module_utils.module import AnsibleIPFModule
 from ansible.module_utils.basic import AnsibleModule
 import time
 

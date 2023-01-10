@@ -972,7 +972,7 @@ Parameters
 
       :ansible-option-choices:`Choices:`
 
-      - :ansible-option-choices-entry:`"ipfabric.ansible.inventory"`
+      - :ansible-option-choices-entry:`"community\_fabric.ansible.inventory"`
 
 
       .. raw:: html
@@ -1345,7 +1345,7 @@ Examples
     # inventory.yml file in YAML format
     # Example command line: ansible-inventory -v --list -i inventory.yml
 
-    plugin: ipfabric.ansible.inventory
+    plugin: community_fabric.ansible.inventory
     provider:
       base_url: https://demo1.eu.ipfabric.io/
       token: test-token

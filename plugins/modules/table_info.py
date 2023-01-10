@@ -11,7 +11,7 @@ description: Fetch tables from IP Fabric.
 author:
   - Alex Gittings (@minitriga)
 extends_documentation_fragment:
-  - ipfabric.ansible.provider
+  - community_fabric.ansible.provider
 options:
   snapshot_id:
     description: IP Fabric snapshot ID to use by default for database actions. Defaults to C(False).
@@ -348,7 +348,7 @@ options:
 
 EXAMPLES = """
 - name: Get devices table from latest snapshot
-  ipfabric.ansible.table_info:
+  community_fabric.ansible.table_info:
     provider:
       base_url: "https://demo1.eu.ipfabric.io/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -356,7 +356,7 @@ EXAMPLES = """
     table: devices
 
 - name: Get devices for a site on specific snapshot and filter by site
-  ipfabric.ansible.table_info:
+  community_fabric.ansible.table_info:
     provider:
       base_url: "https://demo1.eu.ipfabric.io/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -366,7 +366,7 @@ EXAMPLES = """
     filter: {"and": [{"siteName": ["eq","MERAKI_SITE"]}]}
 
 - name: Get devices for a site and only return specific columns
-  ipfabric.ansible.table_info:
+  community_fabric.ansible.table_info:
     provider:
       base_url: "https://demo1.eu.ipfabric.io/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -379,7 +379,7 @@ EXAMPLES = """
       - loginIp
 
 - name: Get Technology Info
-  ipfabric.ansible.table_info:
+  community_fabric.ansible.table_info:
     provider:
       base_url: "https://demo1.eu.ipfabric.io/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -387,7 +387,7 @@ EXAMPLES = """
     table: ospf_interfaces
 
 - name: Filter technology table
-  ipfabric.ansible.table_info:
+  community_fabric.ansible.table_info:
     provider:
       base_url: "https://demo1.eu.ipfabric.io/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -397,7 +397,7 @@ EXAMPLES = """
     filter: {"and": [{"ip": ["eq","10.241.21.2"]}]}
 
 - name: Filter and select columns on technology table
-  ipfabric.ansible.table_info:
+  community_fabric.ansible.table_info:
     provider:
       base_url: "https://demo1.eu.ipfabric.io/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -447,9 +447,9 @@ data:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.ipfabric.ansible.plugins.module_utils.module import AnsibleIPFModule
-from ansible_collections.ipfabric.ansible.plugins.module_utils.module import table_choices
-from ansible_collections.ipfabric.ansible.plugins.module_utils.module import all_tables
+from ansible_collections.community_fabric.ansible.plugins.module_utils.module import AnsibleIPFModule
+from ansible_collections.community_fabric.ansible.plugins.module_utils.module import table_choices
+from ansible_collections.community_fabric.ansible.plugins.module_utils.module import all_tables
 
 
 def handle_module(ipf):

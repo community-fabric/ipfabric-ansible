@@ -13,7 +13,7 @@ DOCUMENTATION = """
       plugin:
         description: token that ensures this is a source file for the 'ipfabric' plugin.
         required: True
-        choices: ['ipfabric.ansible.inventory']
+        choices: ['community_fabric.ansible.inventory']
       provider:
         description:
           - Information used to connect to IP Fabric via API
@@ -63,7 +63,7 @@ EXAMPLES = """
 # inventory.yml file in YAML format
 # Example command line: ansible-inventory -v --list -i inventory.yml
 
-plugin: ipfabric.ansible.inventory
+plugin: community_fabric.ansible.inventory
 provider:
   base_url: https://demo1.eu.ipfabric.io/
   token: test-token
@@ -98,7 +98,7 @@ except ImportError:
 
 
 class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
-    NAME = "ipfabric.ansible.inventory"
+    NAME = "community_fabric.ansible.inventory"
 
     # Constructable methods use the following function to construct group names. By
     # default, characters that are not valid in python variables, are always replaced by

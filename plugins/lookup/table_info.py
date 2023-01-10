@@ -65,23 +65,23 @@ DOCUMENTATION = """
 EXAMPLES = """
 - name: Get devices using lookup inventory plugin (IPF_URL and IPF_TOKEN environment variables set)
   ansible.builtin.debug:
-    msg: "{{ lookup('ipfabric.ansible.table_info', 'inventory', 'devices') }}"
+    msg: "{{ lookup('community_fabric.ansible.table_info', 'inventory', 'devices') }}"
 
 - name: Get devices using lookup inventory plugin
   ansible.builtin.debug:
-    msg: "{{ lookup('ipfabric.ansible.table_info', 'inventory', 'devices', base_url='https://<url_here>/', token='<token_here>') }}"
+    msg: "{{ lookup('community_fabric.ansible.table_info', 'inventory', 'devices', base_url='https://<url_here>/', token='<token_here>') }}"
 
 - name: Get sites and sort by name.
   ansible.builtin.debug:
-    msg: "{{ lookup('ipfabric.ansible.table_info', 'inventory', 'sites', sort={'order': 'asc', 'column': 'siteName'}) }}"
+    msg: "{{ lookup('community_fabric.ansible.table_info', 'inventory', 'sites', sort={'order': 'asc', 'column': 'siteName'}) }}"
 
 - name: Get interfaces filtered by device (if technology is not specified the default is inventory)
   ansible.builtin.debug:
-    msg: "{{ lookup('ipfabric.ansible.table_info', 'interfaces', filter={'hostname': ['eq', 'L38AC20']}, sort={'order': 'asc', 'column':'intName'})}}"
+    msg: "{{ lookup('community_fabric.ansible.table_info', 'interfaces', filter={'hostname': ['eq', 'L38AC20']}, sort={'order': 'asc', 'column':'intName'})}}"
 
 - name: Get interface that match intent verification rule
   ansible.builtin.debug:
-    msg: "{{ lookup('ipfabric.ansible.table_info', 'inventory', 'interfaces', filter={'duplex':['color','eq','20']}, report='/inventory/interfaces')}}"
+    msg: "{{ lookup('community_fabric.ansible.table_info', 'inventory', 'interfaces', filter={'duplex':['color','eq','20']}, report='/inventory/interfaces')}}"
 
 """
 
@@ -96,10 +96,10 @@ from pprint import pformat
 from ansible.errors import AnsibleLookupError
 from ansible.module_utils.six import raise_from
 from ansible.utils.display import Display
-from ansible_collections.ipfabric.ansible.plugins.module_utils.module import AnsibleIPFModule
-from ansible_collections.ipfabric.ansible.plugins.module_utils.module import table_choices
-from ansible_collections.ipfabric.ansible.plugins.module_utils.module import all_tables
-from ansible_collections.ipfabric.ansible.plugins.plugin_utils.base import IPFLookupBase
+from ansible_collections.community_fabric.ansible.plugins.module_utils.module import AnsibleIPFModule
+from ansible_collections.community_fabric.ansible.plugins.module_utils.module import table_choices
+from ansible_collections.community_fabric.ansible.plugins.module_utils.module import all_tables
+from ansible_collections.community_fabric.ansible.plugins.plugin_utils.base import IPFLookupBase
 
 
 try:
