@@ -86,7 +86,6 @@ from ansible.module_utils.basic import missing_required_lib
 from ansible.plugins.inventory import BaseInventoryPlugin, Constructable, Cacheable
 from ansible.inventory.group import to_safe_group_name
 import traceback
-from pprint import pformat
 
 IPFABRIC_IMP_ERR = None
 try:

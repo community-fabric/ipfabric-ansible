@@ -94,20 +94,11 @@ RETURN = """
 
 from pprint import pformat
 from ansible.errors import AnsibleLookupError
-from ansible.module_utils.six import raise_from
 from ansible.utils.display import Display
-from ansible_collections.community_fabric.ansible.plugins.module_utils.module import AnsibleIPFModule
 from ansible_collections.community_fabric.ansible.plugins.module_utils.module import table_choices
 from ansible_collections.community_fabric.ansible.plugins.module_utils.module import all_tables
 from ansible_collections.community_fabric.ansible.plugins.plugin_utils.base import IPFLookupBase
 
-
-try:
-    from ipfabric import IPFClient
-except ImportError as imp_exc:
-    HAS_IPFABRIC = imp_exc
-else:
-    HAS_IPFABRIC = None
 
 display = Display()
 
