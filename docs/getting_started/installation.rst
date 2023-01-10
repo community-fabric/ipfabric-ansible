@@ -6,7 +6,7 @@ Ansible Galaxy
 _______________
 
 Run the following command to install the community_fabric.ansible collection:
-``ansible-galaxy collection install git@github.com:community-fabric/ipfabric-ansible.git``
+``ansible-galaxy collection install community_fabric.ansible``
 
 .. _docs: https://docs.ansible.com/ansible/latest/user_guide/collections_using.html#installing-collections
 
