@@ -6,8 +6,8 @@
 Index of all Lookup Plugins
 ===========================
 
-ipfabric.ansible
-----------------
+community_fabric.ansible
+------------------------
 
-* :ref:`ipfabric.ansible.table_info <ansible_collections.ipfabric.ansible.table_info_lookup>` -- Queries and returns IP Fabric information.
+* :ref:`community_fabric.ansible.table_info <ansible_collections.community_fabric.ansible.table_info_lookup>` -- Queries and returns IP Fabric information.
 

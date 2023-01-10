@@ -6,8 +6,8 @@
 Index of all Inventory Plugins
 ==============================
 
-ipfabric.ansible
-----------------
+community_fabric.ansible
+------------------------
 
-* :ref:`ipfabric.ansible.inventory <ansible_collections.ipfabric.ansible.inventory_inventory>` -- IP Fabric inventory source
+* :ref:`community_fabric.ansible.inventory <ansible_collections.community_fabric.ansible.inventory_inventory>` -- IP Fabric inventory source
 

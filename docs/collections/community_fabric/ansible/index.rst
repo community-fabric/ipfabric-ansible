@@ -1,10 +1,10 @@
 
 
 
-.. _plugins_in_ipfabric.ansible:
+.. _plugins_in_community_fabric.ansible:
 
-Ipfabric.Ansible
-================
+Community_Fabric.Ansible
+========================
 
 Collection version 0.0.1
 
@@ -38,27 +38,27 @@ Ansible Collection for managing IP Fabric
 Plugin Index
 ------------
 
-These are the plugins in the ipfabric.ansible collection:
+These are the plugins in the community_fabric.ansible collection:
 
 
 Modules
 ~~~~~~~
 
-* :ref:`snapshot module <ansible_collections.ipfabric.ansible.snapshot_module>` -- Create, Update, Load, Unload or Delete Snapshots within IP Fabric
-* :ref:`snapshot_info module <ansible_collections.ipfabric.ansible.snapshot_info_module>` -- Fetch Snapshot information within IP Fabric.
-* :ref:`table_info module <ansible_collections.ipfabric.ansible.table_info_module>` -- Fetch tables from IP Fabric.
+* :ref:`snapshot module <ansible_collections.community_fabric.ansible.snapshot_module>` -- 
+* :ref:`snapshot_info module <ansible_collections.community_fabric.ansible.snapshot_info_module>` -- 
+* :ref:`table_info module <ansible_collections.community_fabric.ansible.table_info_module>` -- 
 
 
 Inventory Plugins
 ~~~~~~~~~~~~~~~~~
 
-* :ref:`inventory inventory <ansible_collections.ipfabric.ansible.inventory_inventory>` -- IP Fabric inventory source
+* :ref:`inventory inventory <ansible_collections.community_fabric.ansible.inventory_inventory>` -- IP Fabric inventory source
 
 
 Lookup Plugins
 ~~~~~~~~~~~~~~
 
-* :ref:`table_info lookup <ansible_collections.ipfabric.ansible.table_info_lookup>` -- Queries and returns IP Fabric information.
+* :ref:`table_info lookup <ansible_collections.community_fabric.ansible.table_info_lookup>` -- Queries and returns IP Fabric information.
 
 
 

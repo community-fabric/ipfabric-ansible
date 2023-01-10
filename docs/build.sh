@@ -13,7 +13,7 @@ antsibull-docs \
     collection \
     --use-current \
     --dest-dir temp-rst \
-    ipfabric.ansible
+    community_fabric.ansible
 
 # Copy collection documentation into source directory
 rsync -cprv --delete-after temp-rst/collections/ collections/

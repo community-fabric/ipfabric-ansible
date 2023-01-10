@@ -26,7 +26,7 @@
 
 .. Anchors
 
-.. _ansible_collections.ipfabric.ansible.inventory_inventory:
+.. _ansible_collections.community_fabric.ansible.inventory_inventory:
 
 .. Anchors: short name for ansible.builtin
 
@@ -36,17 +36,17 @@
 
 .. Title
 
-ipfabric.ansible.inventory inventory -- IP Fabric inventory source
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+community_fabric.ansible.inventory inventory -- IP Fabric inventory source
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. Collection note
 
 .. note::
-    This inventory plugin is part of the `ipfabric.ansible collection <https://galaxy.ansible.com/ipfabric/ansible>`_ (version 0.0.1).
+    This inventory plugin is part of the `community_fabric.ansible collection <https://galaxy.ansible.com/community_fabric/ansible>`_ (version 0.0.1).
 
-    To install it, use: :code:`ansible-galaxy collection install ipfabric.ansible`.
+    To install it, use: :code:`ansible-galaxy collection install community\_fabric.ansible`.
 
-    To use it in a playbook, specify: :code:`ipfabric.ansible.inventory`.
+    To use it in a playbook, specify: :code:`community_fabric.ansible.inventory`.
 
 .. version_added
 
@@ -97,7 +97,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-cache"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-cache:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-cache:
 
       .. rst-class:: ansible-option-title
 
@@ -157,7 +157,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-cache_connection"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-cache_connection:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-cache_connection:
 
       .. rst-class:: ansible-option-title
 
@@ -218,7 +218,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-cache_plugin"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-cache_plugin:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-cache_plugin:
 
       .. rst-class:: ansible-option-title
 
@@ -283,7 +283,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-cache_prefix"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-cache_prefix:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-cache_prefix:
 
       .. rst-class:: ansible-option-title
 
@@ -363,7 +363,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-cache_timeout"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-cache_timeout:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-cache_timeout:
 
       .. rst-class:: ansible-option-title
 
@@ -428,7 +428,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-columns"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-columns:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-columns:
 
       .. rst-class:: ansible-option-title
 
@@ -469,7 +469,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-compose"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-compose:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-compose:
 
       .. rst-class:: ansible-option-title
 
@@ -510,7 +510,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-filter"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-filter:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-filter:
 
       .. rst-class:: ansible-option-title
 
@@ -551,7 +551,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-groups"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-groups:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-groups:
 
       .. rst-class:: ansible-option-title
 
@@ -592,7 +592,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-keyed_groups"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-keyed_groups:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-keyed_groups:
 
       .. rst-class:: ansible-option-title
 
@@ -633,7 +633,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-keyed_groups/default_value"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-keyed_groups/default_value:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-keyed_groups/default_value:
 
       .. rst-class:: ansible-option-title
 
@@ -675,7 +675,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-keyed_groups/key"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-keyed_groups/key:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-keyed_groups/key:
 
       .. rst-class:: ansible-option-title
 
@@ -712,7 +712,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-keyed_groups/parent_group"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-keyed_groups/parent_group:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-keyed_groups/parent_group:
 
       .. rst-class:: ansible-option-title
 
@@ -749,7 +749,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-keyed_groups/prefix"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-keyed_groups/prefix:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-keyed_groups/prefix:
 
       .. rst-class:: ansible-option-title
 
@@ -790,7 +790,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-keyed_groups/separator"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-keyed_groups/separator:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-keyed_groups/separator:
 
       .. rst-class:: ansible-option-title
 
@@ -831,7 +831,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-keyed_groups/trailing_separator"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-keyed_groups/trailing_separator:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-keyed_groups/trailing_separator:
 
       .. rst-class:: ansible-option-title
 
@@ -882,7 +882,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-leading_separator"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-leading_separator:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-leading_separator:
 
       .. rst-class:: ansible-option-title
 
@@ -940,7 +940,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-plugin"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-plugin:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-plugin:
 
       .. rst-class:: ansible-option-title
 
@@ -984,7 +984,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-provider:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-provider:
 
       .. rst-class:: ansible-option-title
 
@@ -1021,7 +1021,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/api_version"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-provider/api_version:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-provider/api_version:
 
       .. rst-class:: ansible-option-title
 
@@ -1058,7 +1058,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/base_url"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-provider/base_url:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-provider/base_url:
 
       .. rst-class:: ansible-option-title
 
@@ -1095,7 +1095,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/token"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-provider/token:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-provider/token:
 
       .. rst-class:: ansible-option-title
 
@@ -1132,7 +1132,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/verify"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-provider/verify:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-provider/verify:
 
       .. rst-class:: ansible-option-title
 
@@ -1178,7 +1178,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-snapshot_id"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-snapshot_id:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-snapshot_id:
 
       .. rst-class:: ansible-option-title
 
@@ -1219,7 +1219,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-strict"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-strict:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-strict:
 
       .. rst-class:: ansible-option-title
 
@@ -1266,7 +1266,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-use_extra_vars"></div>
 
-      .. _ansible_collections.ipfabric.ansible.inventory_inventory__parameter-use_extra_vars:
+      .. _ansible_collections.community_fabric.ansible.inventory_inventory__parameter-use_extra_vars:
 
       .. rst-class:: ansible-option-title
 

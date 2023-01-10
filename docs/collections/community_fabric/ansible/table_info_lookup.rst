@@ -26,7 +26,7 @@
 
 .. Anchors
 
-.. _ansible_collections.ipfabric.ansible.table_info_lookup:
+.. _ansible_collections.community_fabric.ansible.table_info_lookup:
 
 .. Anchors: short name for ansible.builtin
 
@@ -36,19 +36,19 @@
 
 .. Title
 
-ipfabric.ansible.table_info lookup -- Queries and returns IP Fabric information.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+community_fabric.ansible.table_info lookup -- Queries and returns IP Fabric information.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. Collection note
 
 .. note::
-    This lookup plugin is part of the `ipfabric.ansible collection <https://galaxy.ansible.com/ipfabric/ansible>`_ (version 0.0.1).
+    This lookup plugin is part of the `community_fabric.ansible collection <https://galaxy.ansible.com/community_fabric/ansible>`_ (version 0.0.1).
 
-    To install it, use: :code:`ansible-galaxy collection install ipfabric.ansible`.
+    To install it, use: :code:`ansible-galaxy collection install community\_fabric.ansible`.
     You need further requirements to be able to use this lookup plugin,
-    see :ref:`Requirements <ansible_collections.ipfabric.ansible.table_info_lookup_requirements>` for details.
+    see :ref:`Requirements <ansible_collections.community_fabric.ansible.table_info_lookup_requirements>` for details.
 
-    To use it in a playbook, specify: :code:`ipfabric.ansible.table_info`.
+    To use it in a playbook, specify: :code:`community_fabric.ansible.table_info`.
 
 .. version_added
 
@@ -73,7 +73,7 @@ Synopsis
 
 .. Requirements
 
-.. _ansible_collections.ipfabric.ansible.table_info_lookup_requirements:
+.. _ansible_collections.community_fabric.ansible.table_info_lookup_requirements:
 
 Requirements
 ------------
@@ -104,7 +104,7 @@ Terms
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-_terms"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-_terms:
+      .. _ansible_collections.community_fabric.ansible.table_info_lookup__parameter-_terms:
 
       .. rst-class:: ansible-option-title
 
@@ -161,7 +161,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-base_url"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-base_url:
+      .. _ansible_collections.community_fabric.ansible.table_info_lookup__parameter-base_url:
 
       .. rst-class:: ansible-option-title
 
@@ -205,7 +205,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-columns"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-columns:
+      .. _ansible_collections.community_fabric.ansible.table_info_lookup__parameter-columns:
 
       .. rst-class:: ansible-option-title
 
@@ -242,7 +242,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-filter"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-filter:
+      .. _ansible_collections.community_fabric.ansible.table_info_lookup__parameter-filter:
 
       .. rst-class:: ansible-option-title
 
@@ -279,7 +279,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-ipf_version"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-ipf_version:
+      .. _ansible_collections.community_fabric.ansible.table_info_lookup__parameter-ipf_version:
 
       .. rst-class:: ansible-option-title
 
@@ -316,7 +316,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-report"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-report:
+      .. _ansible_collections.community_fabric.ansible.table_info_lookup__parameter-report:
 
       .. rst-class:: ansible-option-title
 
@@ -353,7 +353,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-sort"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-sort:
+      .. _ansible_collections.community_fabric.ansible.table_info_lookup__parameter-sort:
 
       .. rst-class:: ansible-option-title
 
@@ -390,7 +390,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-token"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-token:
+      .. _ansible_collections.community_fabric.ansible.table_info_lookup__parameter-token:
 
       .. rst-class:: ansible-option-title
 
@@ -434,7 +434,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-verify"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_lookup__parameter-verify:
+      .. _ansible_collections.community_fabric.ansible.table_info_lookup__parameter-verify:
 
       .. rst-class:: ansible-option-title
 
@@ -539,7 +539,7 @@ Return Value
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="return-_list"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_lookup__return-_list:
+      .. _ansible_collections.community_fabric.ansible.table_info_lookup__return-_list:
 
       .. rst-class:: ansible-option-title
 
