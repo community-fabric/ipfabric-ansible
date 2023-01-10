@@ -1,5 +1,5 @@
 ---
-namespace: ipfabric
+namespace: community-fabric
 name: ansible
 version: 0.0.1
 readme: README.md
