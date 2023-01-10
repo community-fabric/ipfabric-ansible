@@ -6,10 +6,10 @@
 Index of all Modules
 ====================
 
-ipfabric.ansible
-----------------
+community_fabric.ansible
+------------------------
 
-* :ref:`ipfabric.ansible.snapshot <ansible_collections.ipfabric.ansible.snapshot_module>` -- Create, Update, Load, Unload or Delete Snapshots within IP Fabric
-* :ref:`ipfabric.ansible.snapshot_info <ansible_collections.ipfabric.ansible.snapshot_info_module>` -- Fetch Snapshot information within IP Fabric.
-* :ref:`ipfabric.ansible.table_info <ansible_collections.ipfabric.ansible.table_info_module>` -- Fetch tables from IP Fabric.
+* :ref:`community_fabric.ansible.snapshot <ansible_collections.community_fabric.ansible.snapshot_module>` -- Create, Update, Load, Unload or Delete Snapshots within IP Fabric
+* :ref:`community_fabric.ansible.snapshot_info <ansible_collections.community_fabric.ansible.snapshot_info_module>` -- Fetch Snapshot information within IP Fabric.
+* :ref:`community_fabric.ansible.table_info <ansible_collections.community_fabric.ansible.table_info_module>` -- Fetch tables from IP Fabric.
 

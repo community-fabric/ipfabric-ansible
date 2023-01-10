@@ -26,7 +26,7 @@
 
 .. Anchors
 
-.. _ansible_collections.ipfabric.ansible.table_info_module:
+.. _ansible_collections.community_fabric.ansible.table_info_module:
 
 .. Anchors: short name for ansible.builtin
 
@@ -36,17 +36,17 @@
 
 .. Title
 
-ipfabric.ansible.table_info module -- Fetch tables from IP Fabric.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+community_fabric.ansible.table_info module -- Fetch tables from IP Fabric.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. Collection note
 
 .. note::
-    This module is part of the `ipfabric.ansible collection <https://galaxy.ansible.com/ipfabric/ansible>`_ (version 0.0.1).
+    This module is part of the `community_fabric.ansible collection <https://galaxy.ansible.com/community_fabric/ansible>`_ (version 0.0.1).
 
-    To install it, use: :code:`ansible-galaxy collection install ipfabric.ansible`.
+    To install it, use: :code:`ansible-galaxy collection install community\_fabric.ansible`.
 
-    To use it in a playbook, specify: :code:`ipfabric.ansible.table_info`.
+    To use it in a playbook, specify: :code:`community_fabric.ansible.table_info`.
 
 .. version_added
 
@@ -97,7 +97,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-columns"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_module__parameter-columns:
+      .. _ansible_collections.community_fabric.ansible.table_info_module__parameter-columns:
 
       .. rst-class:: ansible-option-title
 
@@ -135,7 +135,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-filter"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_module__parameter-filter:
+      .. _ansible_collections.community_fabric.ansible.table_info_module__parameter-filter:
 
       .. rst-class:: ansible-option-title
 
@@ -173,7 +173,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_module__parameter-provider:
+      .. _ansible_collections.community_fabric.ansible.table_info_module__parameter-provider:
 
       .. rst-class:: ansible-option-title
 
@@ -207,7 +207,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/api_version"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_module__parameter-provider/api_version:
+      .. _ansible_collections.community_fabric.ansible.table_info_module__parameter-provider/api_version:
 
       .. rst-class:: ansible-option-title
 
@@ -241,7 +241,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/base_url"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_module__parameter-provider/base_url:
+      .. _ansible_collections.community_fabric.ansible.table_info_module__parameter-provider/base_url:
 
       .. rst-class:: ansible-option-title
 
@@ -275,7 +275,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/token"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_module__parameter-provider/token:
+      .. _ansible_collections.community_fabric.ansible.table_info_module__parameter-provider/token:
 
       .. rst-class:: ansible-option-title
 
@@ -309,7 +309,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/verify"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_module__parameter-provider/verify:
+      .. _ansible_collections.community_fabric.ansible.table_info_module__parameter-provider/verify:
 
       .. rst-class:: ansible-option-title
 
@@ -352,7 +352,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-report"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_module__parameter-report:
+      .. _ansible_collections.community_fabric.ansible.table_info_module__parameter-report:
 
       .. rst-class:: ansible-option-title
 
@@ -386,7 +386,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-snapshot_id"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_module__parameter-snapshot_id:
+      .. _ansible_collections.community_fabric.ansible.table_info_module__parameter-snapshot_id:
 
       .. rst-class:: ansible-option-title
 
@@ -420,7 +420,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-sort"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_module__parameter-sort:
+      .. _ansible_collections.community_fabric.ansible.table_info_module__parameter-sort:
 
       .. rst-class:: ansible-option-title
 
@@ -445,6 +445,10 @@ Parameters
       Sort IP Fabric API response.
 
 
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-default-bold:`Default:` :ansible-option-default:`{}`
+
       .. raw:: html
 
         </div>
@@ -454,7 +458,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-table"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_module__parameter-table:
+      .. _ansible_collections.community_fabric.ansible.table_info_module__parameter-table:
 
       .. rst-class:: ansible-option-title
 
@@ -562,6 +566,7 @@ Parameters
       - :ansible-option-choices-entry:`"interfaces"`
       - :ansible-option-choices-entry:`"models"`
       - :ansible-option-choices-entry:`"modules"`
+      - :ansible-option-choices-entry:`"os\_version\_consistency"`
       - :ansible-option-choices-entry:`"phones"`
       - :ansible-option-choices-entry:`"platforms"`
       - :ansible-option-choices-entry:`"pn"`
@@ -767,7 +772,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-technology"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_module__parameter-technology:
+      .. _ansible_collections.community_fabric.ansible.table_info_module__parameter-technology:
 
       .. rst-class:: ansible-option-title
 
@@ -845,7 +850,7 @@ Examples
 
     
     - name: Get devices table from latest snapshot
-      ipfabric.ansible.table_info:
+      community_fabric.ansible.table_info:
         provider:
           base_url: "https://demo1.eu.ipfabric.io/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -853,7 +858,7 @@ Examples
         table: devices
 
     - name: Get devices for a site on specific snapshot and filter by site
-      ipfabric.ansible.table_info:
+      community_fabric.ansible.table_info:
         provider:
           base_url: "https://demo1.eu.ipfabric.io/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -863,7 +868,7 @@ Examples
         filter: {"and": [{"siteName": ["eq","MERAKI_SITE"]}]}
 
     - name: Get devices for a site and only return specific columns
-      ipfabric.ansible.table_info:
+      community_fabric.ansible.table_info:
         provider:
           base_url: "https://demo1.eu.ipfabric.io/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -876,7 +881,7 @@ Examples
           - loginIp
 
     - name: Get Technology Info
-      ipfabric.ansible.table_info:
+      community_fabric.ansible.table_info:
         provider:
           base_url: "https://demo1.eu.ipfabric.io/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -884,7 +889,7 @@ Examples
         table: ospf_interfaces
 
     - name: Filter technology table
-      ipfabric.ansible.table_info:
+      community_fabric.ansible.table_info:
         provider:
           base_url: "https://demo1.eu.ipfabric.io/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -894,7 +899,7 @@ Examples
         filter: {"and": [{"ip": ["eq","10.241.21.2"]}]}
 
     - name: Filter and select columns on technology table
-      ipfabric.ansible.table_info:
+      community_fabric.ansible.table_info:
         provider:
           base_url: "https://demo1.eu.ipfabric.io/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -936,7 +941,7 @@ Common return values are documented :ref:`here <common_return_values>`, the foll
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="return-data"></div>
 
-      .. _ansible_collections.ipfabric.ansible.table_info_module__return-data:
+      .. _ansible_collections.community_fabric.ansible.table_info_module__return-data:
 
       .. rst-class:: ansible-option-title
 

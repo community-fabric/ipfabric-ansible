@@ -1,9 +1,9 @@
 .. _docsite_root_index:
 
-ipfabric.ansible Ansible collection documentation!
+community_fabric.ansible Ansible collection documentation!
 ==================================================
 
-This docsite contains documentation of ipfabric.ansible.
+This docsite contains documentation of community_fabric.ansible.
 
 Contents
 ========

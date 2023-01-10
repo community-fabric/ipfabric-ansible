@@ -13,13 +13,13 @@ This collection depends on the IP Fabric SDK for python (ipfabric).
 
 ## Included Content
 See below for the current collection content:
-- `ipfabric.ansible.inventory`
+- `community_fabric.ansible.inventory`
 
 ## Installing this collection
-You can install the `ipfabric.ansible` collection with the Ansible Galaxy CLI:
+You can install the `community_fabric.ansible` collection with the Ansible Galaxy CLI:
 
 ```
-ansible-galaxy collection install git@github.com:community-fabric/ipfabric-ansible.git
+ansible-galaxy collection install community_fabric.ansible
 ```
 
 The python module dependencies are not installed by `ansible-galaxy`. They can be installed manually using pip:
@@ -35,7 +35,7 @@ Here are some quick examples to get up and running with the inventory module.
 
 ```yaml
   ---
-plugin: ipfabric.ansible.inventory
+plugin: community_fabric.ansible.inventory
 keyed_groups:
 - key: vendor
     prefix: "network_vendor"

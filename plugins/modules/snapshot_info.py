@@ -11,7 +11,7 @@ description: Fetch Snapshot information within IP Fabric.
 author:
   - Alex Gittings (@minitriga)
 extends_documentation_fragment:
-  - ipfabric.ansible.provider
+  - community_fabric.ansible.provider
 options:
   snapshot_id:
     description: IP Fabric snapshot ID to use by default for database actions. Defaults to C(False).
@@ -20,13 +20,13 @@ options:
 
 EXAMPLES = '''
 - name: Get All Snapshots
-  ipfabric.ansible.snapshot_info:
+  community_fabric.ansible.snapshot_info:
     provider:
       base_url: "https://demo1.ipfabric.io/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
 
 - name: Get One Snapshot
-  ipfabric.ansible.snapshot_info:
+  community_fabric.ansible.snapshot_info:
     provider:
       base_url: "https://demo1.ipfabric.io/"
       token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
@@ -65,7 +65,7 @@ data:
       version: 5.0.2+5
 '''
 
-from ansible_collections.ipfabric.ansible.plugins.module_utils.module import AnsibleIPFModule
+from ansible_collections.community_fabric.ansible.plugins.module_utils.module import AnsibleIPFModule
 from ansible.module_utils.basic import AnsibleModule
 
 

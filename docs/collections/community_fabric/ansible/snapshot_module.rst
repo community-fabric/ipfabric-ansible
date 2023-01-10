@@ -26,7 +26,7 @@
 
 .. Anchors
 
-.. _ansible_collections.ipfabric.ansible.snapshot_info_module:
+.. _ansible_collections.community_fabric.ansible.snapshot_module:
 
 .. Anchors: short name for ansible.builtin
 
@@ -36,17 +36,17 @@
 
 .. Title
 
-ipfabric.ansible.snapshot_info module -- Fetch Snapshot information within IP Fabric.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+community_fabric.ansible.snapshot module -- Create, Update, Load, Unload or Delete Snapshots within IP Fabric
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. Collection note
 
 .. note::
-    This module is part of the `ipfabric.ansible collection <https://galaxy.ansible.com/ipfabric/ansible>`_ (version 0.0.1).
+    This module is part of the `community_fabric.ansible collection <https://galaxy.ansible.com/community_fabric/ansible>`_ (version 0.0.1).
 
-    To install it, use: :code:`ansible-galaxy collection install ipfabric.ansible`.
+    To install it, use: :code:`ansible-galaxy collection install community\_fabric.ansible`.
 
-    To use it in a playbook, specify: :code:`ipfabric.ansible.snapshot_info`.
+    To use it in a playbook, specify: :code:`community_fabric.ansible.snapshot`.
 
 .. version_added
 
@@ -63,7 +63,7 @@ Synopsis
 
 .. Description
 
-- Fetch Snapshot information within IP Fabric.
+- Create, Update, Load, Unload or Delete Snapshots within IP Fabric
 
 
 .. Aliases
@@ -95,9 +95,43 @@ Parameters
   * - .. raw:: html
 
         <div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-devices"></div>
+
+      .. _ansible_collections.community_fabric.ansible.snapshot_module__parameter-devices:
+
+      .. rst-class:: ansible-option-title
+
+      **devices**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-devices" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`list` / :ansible-option-elements:`elements=string`
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-cell">
+
+      List of device serial numbers to rediscover
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider"></div>
 
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__parameter-provider:
+      .. _ansible_collections.community_fabric.ansible.snapshot_module__parameter-provider:
 
       .. rst-class:: ansible-option-title
 
@@ -131,7 +165,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/api_version"></div>
 
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__parameter-provider/api_version:
+      .. _ansible_collections.community_fabric.ansible.snapshot_module__parameter-provider/api_version:
 
       .. rst-class:: ansible-option-title
 
@@ -165,7 +199,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/base_url"></div>
 
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__parameter-provider/base_url:
+      .. _ansible_collections.community_fabric.ansible.snapshot_module__parameter-provider/base_url:
 
       .. rst-class:: ansible-option-title
 
@@ -199,7 +233,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/token"></div>
 
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__parameter-provider/token:
+      .. _ansible_collections.community_fabric.ansible.snapshot_module__parameter-provider/token:
 
       .. rst-class:: ansible-option-title
 
@@ -233,7 +267,7 @@ Parameters
         <div class="ansible-option-indent"></div><div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-provider/verify"></div>
 
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__parameter-provider/verify:
+      .. _ansible_collections.community_fabric.ansible.snapshot_module__parameter-provider/verify:
 
       .. rst-class:: ansible-option-title
 
@@ -276,7 +310,7 @@ Parameters
         <div class="ansible-option-cell">
         <div class="ansibleOptionAnchor" id="parameter-snapshot_id"></div>
 
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__parameter-snapshot_id:
+      .. _ansible_collections.community_fabric.ansible.snapshot_module__parameter-snapshot_id:
 
       .. rst-class:: ansible-option-title
 
@@ -298,7 +332,123 @@ Parameters
 
         <div class="ansible-option-cell">
 
-      IP Fabric snapshot ID to use by default for database actions. Defaults to \ :literal:`False`\ .
+      IP Fabric snapshot IF to use by default for database actions. Defaults to \ :literal:`False`\ .
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-snapshot_name"></div>
+
+      .. _ansible_collections.community_fabric.ansible.snapshot_module__parameter-snapshot_name:
+
+      .. rst-class:: ansible-option-title
+
+      **snapshot_name**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-snapshot_name" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`string`
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-cell">
+
+      Set snapshot name
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-snapshot_note"></div>
+
+      .. _ansible_collections.community_fabric.ansible.snapshot_module__parameter-snapshot_note:
+
+      .. rst-class:: ansible-option-title
+
+      **snapshot_note**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-snapshot_note" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`string`
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-cell">
+
+      Set snapshot description
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-state"></div>
+
+      .. _ansible_collections.community_fabric.ansible.snapshot_module__parameter-state:
+
+      .. rst-class:: ansible-option-title
+
+      **state**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-state" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`string`
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-cell">
+
+      State of snapshot.
+
+
+      .. rst-class:: ansible-option-line
+
+      :ansible-option-choices:`Choices:`
+
+      - :ansible-option-choices-entry-default:`"present"` :ansible-option-choices-default-mark:`← (default)`
+      - :ansible-option-choices-entry:`"absent"`
+      - :ansible-option-choices-entry:`"load"`
+      - :ansible-option-choices-entry:`"unload"`
+      - :ansible-option-choices-entry:`"lock"`
+      - :ansible-option-choices-entry:`"unlock"`
+      - :ansible-option-choices-entry:`"clone"`
+      - :ansible-option-choices-entry:`"rediscover"`
 
 
       .. raw:: html
@@ -323,19 +473,45 @@ Examples
 .. code-block:: yaml+jinja
 
     
-    - name: Get All Snapshots
-      ipfabric.ansible.snapshot_info:
+    - name: Start Snapshot
+      community_fabric.ansible.snapshot:
         provider:
           base_url: "https://demo1.ipfabric.io/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
 
-    - name: Get One Snapshot
-      ipfabric.ansible.snapshot_info:
+    - name: Delete Snapshot
+      community_fabric.ansible.snapshot:
         provider:
-          base_url: "https://demo1.ipfabric.io/"
+          base_url: "https://10.194.50.6/"
           token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
-        snapshot_id: bbc15e2e-4e75-4c54-9526-b6d8d3f9ff8b
-      register: snapshots
+        snaphot_id: 12dd8c61-129c-431a-b98b-4c9211571f89
+        state: absent
+
+    - name: Unload Snapshot
+      community_fabric.ansible.snapshot:
+        provider:
+          base_url: "https://10.194.50.6/"
+          token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
+        snaphot_id: 12dd8c61-129c-431a-b98b-4c9211571f89
+        state: unload
+
+    - name: Clone Snapshot
+      community_fabric.ansible.snapshot:
+        provider:
+          base_url: "https://10.194.50.6/"
+          token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
+        snaphot_id: 12dd8c61-129c-431a-b98b-4c9211571f89
+        state: clone
+
+    - name: Clone Snapshot
+      community_fabric.ansible.snapshot:
+        provider:
+          base_url: "https://10.194.50.6/"
+          token: "{{ lookup('ansible.builtin.env', 'IPF_TOKEN')}}"
+        snaphot_id: 12dd8c61-129c-431a-b98b-4c9211571f89
+        devices:
+          - 9AMSST2E75V
+        state: rediscover
 
 
 
@@ -344,65 +520,6 @@ Examples
 
 
 .. Return values
-
-Return Values
--------------
-Common return values are documented :ref:`here <common_return_values>`, the following are the fields unique to this module:
-
-.. rst-class:: ansible-option-table
-
-.. list-table::
-  :width: 100%
-  :widths: auto
-  :header-rows: 1
-
-  * - Key
-    - Description
-
-  * - .. raw:: html
-
-        <div class="ansible-option-cell">
-        <div class="ansibleOptionAnchor" id="return-data"></div>
-
-      .. _ansible_collections.ipfabric.ansible.snapshot_info_module__return-data:
-
-      .. rst-class:: ansible-option-title
-
-      **data**
-
-      .. raw:: html
-
-        <a class="ansibleOptionLink" href="#return-data" title="Permalink to this return value"></a>
-
-      .. rst-class:: ansible-option-type-line
-
-      :ansible-option-type:`list` / :ansible-option-elements:`elements=dictionary`
-
-      .. raw:: html
-
-        </div>
-
-    - .. raw:: html
-
-        <div class="ansible-option-cell">
-
-      IP Fabric snapshot information
-
-
-      .. rst-class:: ansible-option-line
-
-      :ansible-option-returned-bold:`Returned:` success
-
-      .. rst-class:: ansible-option-line
-      .. rst-class:: ansible-option-sample
-
-      :ansible-option-sample-bold:`Sample:` :ansible-rv-sample-value:`[{"count": 61, "end": "2022-01-26T23:07:39.641000+00:00", "licensed\_count": 61, "locked": false, "name": "test\_daren", "note": "Site 35 - Baseline, before adding the Azure infrastructure", "sites": [{"site\_id": "2019877", "uid": "35COLO"}, {"site\_id": "2019883", "uid": "35HEADOFFICE"}, {"site\_id": "2019888", "uid": "35PRODUCTION"}, {"site\_id": "2019895", "uid": "35SALES"}, {"site\_id": "2019900", "uid": "MPLS"}], "snapshot\_id": "d323b197-35bb-41e5-9a42-d4de9b38ccaa", "start": "2022-01-26T22:59:15.816000+00:00", "state": "loaded", "status": "done", "version": "5.0.2+5"}]`
-
-
-      .. raw:: html
-
-        </div>
-
 
 
 ..  Status (Presently only deprecated)
