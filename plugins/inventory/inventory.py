@@ -129,8 +129,13 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
                 self.inventory.add_host(host=to_text(hostname))
                 self.inventory.set_variable(to_text(hostname), 'ansible_host', device['loginIp'])
                 for devicevar, deviceval in device.items():
-                    self.inventory.set_variable(to_text(hostname), devicevar.lower(), deviceval)
-                    new_vars[devicevar.lower()] = deviceval
+                    if isinstance(deviceval, int):
+                        new_device_value = str(deviceval)
+                    else:
+                        new_device_value = deviceval
+                    
+                    self.inventory.set_variable(to_text(hostname), devicevar.lower(), new_device_value)
+                    new_vars[devicevar.lower()] = new_device_value
 
                     strict = self.get_option('strict')
 

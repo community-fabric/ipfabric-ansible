@@ -59,6 +59,24 @@ def test_populate_groups_no_sanitization(inventory, mocker, payload, transform):
         ("all", "ungrouped", "1SITE", "SITE:1", "SITE-1")
     ) == set((inventory.inventory.groups.keys()))
 
+@pytest.mark.parametrize("transform", ["never", "ignore"])
+def test_populate_groups_no_sanitization_platform(inventory, mocker, payload, transform):
+    def get_option(opt):
+        return dict(
+            keyed_groups=[dict(key="platform", prefix="p_", separator="")]
+        ).get(opt)
+
+    inventory.get_option = mocker.MagicMock(side_effect=get_option)
+    mocker.patch("ansible.constants.TRANSFORM_INVALID_GROUP_CHARS", transform)
+
+    inventory._populate(
+        payload
+    )
+    print(inventory.inventory.groups.keys())
+    assert set(
+        ("all", "ungrouped", "p_i86bi_linux", "p_ios", "p_vsrx", "p_5500")
+    ) == set((inventory.inventory.groups.keys()))
+
 
 @pytest.mark.parametrize("transform", ["always", "silently"])
 def test_populate_groups_sanitization(inventory, mocker, payload, transform):
