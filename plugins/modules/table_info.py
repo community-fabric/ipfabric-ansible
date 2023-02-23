@@ -459,7 +459,7 @@ def handle_module(ipf):
     columns = ipf.module.params['columns']
     report = ipf.module.params['report']
     sort = ipf.module.params['sort']
-    snapshot_id = ipf.module.params['sort']
+    snapshot_id = ipf.module.params['snapshot_id']
 
     data = ipf.table_info(technology, table, filter, columns, report, sort, snapshot_id)
 
