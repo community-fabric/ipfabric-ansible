@@ -6,7 +6,7 @@
 Community_Fabric.Ansible
 ========================
 
-Collection version 0.0.1
+Collection version 0.0.3
 
 .. contents::
    :local:
@@ -21,6 +21,9 @@ Ansible Collection for managing IP Fabric
 
 * IP Fabric <solution.architecture@ipfabric.io>
 
+**Supported ansible-core versions:**
+
+* 2.9.10 or newer
 
 .. raw:: html
 

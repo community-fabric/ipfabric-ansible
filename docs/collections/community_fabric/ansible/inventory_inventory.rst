@@ -42,7 +42,7 @@ community_fabric.ansible.inventory inventory -- IP Fabric inventory source
 .. Collection note
 
 .. note::
-    This inventory plugin is part of the `community_fabric.ansible collection <https://galaxy.ansible.com/community_fabric/ansible>`_ (version 0.0.1).
+    This inventory plugin is part of the `community_fabric.ansible collection <https://galaxy.ansible.com/community_fabric/ansible>`_ (version 0.0.3).
 
     To install it, use: :code:`ansible-galaxy collection install community\_fabric.ansible`.
 

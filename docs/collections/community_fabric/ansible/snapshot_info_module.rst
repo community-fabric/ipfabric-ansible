@@ -42,7 +42,7 @@ community_fabric.ansible.snapshot_info module -- Fetch Snapshot information with
 .. Collection note
 
 .. note::
-    This module is part of the `community_fabric.ansible collection <https://galaxy.ansible.com/community_fabric/ansible>`_ (version 0.0.1).
+    This module is part of the `community_fabric.ansible collection <https://galaxy.ansible.com/community_fabric/ansible>`_ (version 0.0.3).
 
     To install it, use: :code:`ansible-galaxy collection install community\_fabric.ansible`.
 
