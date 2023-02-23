@@ -30,4 +30,9 @@ options:
                 Set to C(false) when certificated are not trusted.
         default: True
         type: bool
+      timeout:
+        description:
+          - Set HTTP Timeout
+        type: int
+        default: null
 '''

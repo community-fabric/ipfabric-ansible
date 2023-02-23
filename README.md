@@ -46,7 +46,7 @@ keyed_groups:
 *TODO*
 
 ## Release notes
-0.0.1 Beta Release (IP Fabric Inventory)
+0.0.3 Beta Release (IP Fabric Inventory)
 
 ## Licensing
 *TODO*

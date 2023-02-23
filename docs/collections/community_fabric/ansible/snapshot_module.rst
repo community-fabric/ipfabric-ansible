@@ -42,7 +42,7 @@ community_fabric.ansible.snapshot module -- Create, Update, Load, Unload or Dele
 .. Collection note
 
 .. note::
-    This module is part of the `community_fabric.ansible collection <https://galaxy.ansible.com/community_fabric/ansible>`_ (version 0.0.1).
+    This module is part of the `community_fabric.ansible collection <https://galaxy.ansible.com/community_fabric/ansible>`_ (version 0.0.3).
 
     To install it, use: :code:`ansible-galaxy collection install community\_fabric.ansible`.
 
@@ -222,6 +222,40 @@ Parameters
         <div class="ansible-option-indent-desc"></div><div class="ansible-option-cell">
 
       Url of the IP Fabric API
+
+
+      .. raw:: html
+
+        </div>
+
+  * - .. raw:: html
+
+        <div class="ansible-option-indent"></div><div class="ansible-option-cell">
+        <div class="ansibleOptionAnchor" id="parameter-provider/timeout"></div>
+
+      .. _ansible_collections.community_fabric.ansible.snapshot_module__parameter-provider/timeout:
+
+      .. rst-class:: ansible-option-title
+
+      **timeout**
+
+      .. raw:: html
+
+        <a class="ansibleOptionLink" href="#parameter-provider/timeout" title="Permalink to this option"></a>
+
+      .. rst-class:: ansible-option-type-line
+
+      :ansible-option-type:`integer`
+
+      .. raw:: html
+
+        </div>
+
+    - .. raw:: html
+
+        <div class="ansible-option-indent-desc"></div><div class="ansible-option-cell">
+
+      Set HTTP Timeout
 
 
       .. raw:: html
