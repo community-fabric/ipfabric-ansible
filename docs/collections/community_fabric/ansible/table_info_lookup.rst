@@ -42,7 +42,7 @@ community_fabric.ansible.table_info lookup -- Queries and returns IP Fabric info
 .. Collection note
 
 .. note::
-    This lookup plugin is part of the `community_fabric.ansible collection <https://galaxy.ansible.com/community_fabric/ansible>`_ (version 0.0.1).
+    This lookup plugin is part of the `community_fabric.ansible collection <https://galaxy.ansible.com/community_fabric/ansible>`_ (version 0.0.3).
 
     To install it, use: :code:`ansible-galaxy collection install community\_fabric.ansible`.
     You need further requirements to be able to use this lookup plugin,

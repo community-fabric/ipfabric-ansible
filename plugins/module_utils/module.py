@@ -453,7 +453,8 @@ class AnsibleIPFModule(object):
                     ),
                     token=dict(type="str", required=True, fallback=(env_fallback, ['IPF_TOKEN']), no_log=True),
                     api_version=dict(type="str", required=False),
-                    verify=dict(type="bool", required=False, default=True)
+                    verify=dict(type="bool", required=False, default=True),
+                    timeout=dict(type='int', required=False, default=None)
                 ),
                 required=True
             )
